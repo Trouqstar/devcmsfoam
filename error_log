@@ -1,0 +1,9 @@
+[20-Jun-2025 22:24:36 UTC] WordPress database error Table 'soft_loginizer_logs' already exists for query CREATE TABLE `soft_loginizer_logs` (
+				`username` varchar(255) NOT NULL DEFAULT '',
+				`time` int(10) NOT NULL DEFAULT '0',
+				`count` int(10) NOT NULL DEFAULT '0',
+				`lockout` int(10) NOT NULL DEFAULT '0',
+				`ip` varchar(255) NOT NULL DEFAULT '',
+				`url` varchar(255) NOT NULL DEFAULT '',
+				UNIQUE KEY `ip` (`ip`)
+			) DEFAULT CHARSET=utf8; made by require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('plugins_loaded'), WP_Hook->do_action, WP_Hook->apply_filters, loginizer_load_plugin, loginizer_update_check, loginizer_activation

@@ -1,0 +1,35 @@
+/*
+CTC Separate Stylesheet
+Updated: 2025-04-28 19:58:55
+*/
+
+/* Removal of Title Headers */
+
+/* ===== KADENCE PAGE TITLE REMOVAL ===== */
+body.page .entry-hero-container,
+body.page .entry-header,
+body.page .page-header,
+body.page .kadence-page-title {
+    display: none !important;
+    height: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    border: 0 !important;
+    overflow: hidden !important;
+}
+
+/* Content adjustment */
+body.page .site-main,
+body.page .content-container {
+    padding-top: 0 !important;
+    margin-top: 0 !important;
+}
+
+/* Mobile optimization */
+@media (max-width: 767px) {
+    body.page .site-main {
+        padding-top: 0 !important;
+    }
+}
+
+/* End */

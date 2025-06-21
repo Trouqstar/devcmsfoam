@@ -1,0 +1,32 @@
+/* ===== System Font Stack with Gill Sans-like Adjustments ===== */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, 
+                 Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif, 
+                 "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-weight: 400; /* Regular/Book weight */
+    letter-spacing: 0.01em; /* Tight spacing like Gill Sans */
+    line-height: 1.6;
+}
+
+/* Headers (Medium weight for hierarchy) */
+h1, h2, h3, h4, h5, h6,
+.site-title, 
+.entry-title {
+    font-weight: 500; /* Medium weight (matches Gill Sans Nova Book) */
+    letter-spacing: -0.01em;
+}
+
+/* Buttons (match The White Company's caps style) */
+.wp-block-button__link, 
+.button {
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+/* Optional: macOS-specific refinement */
+@supports (font: -apple-system-body) {
+    body {
+        letter-spacing: 0.005em; /* Even tighter spacing on Apple devices */
+    }
+}

@@ -1,0 +1,510 @@
+/* ============= HEADER STRUCTURE ============= */
+.site-header {
+    position: relative;
+    width: 100%;
+    z-index: 100;
+    background: #ffffff;
+
+    &::before {
+        content: '';
+        pointer-events: none;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 1px;
+        width: 100%;
+        background: #f0f0f0;
+    }
+}
+
+.header-navbar.twc-header {
+    display: flex !important;
+    gap: 40px;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 1000;
+    padding-inline: 20px;
+}
+
+.header-logo.twc-logo {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+}
+
+.header-logo.twc-logo img {
+    height: 30px;
+    width: auto;
+    display: block;
+}
+
+/* Primary Navigation */
+.twc-primary-nav-wrapper {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: left;
+}
+
+.twc-primary-nav {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 20px;
+    width: 100%;
+    z-index: 1000;
+}
+
+.twc-primary-nav > li {
+    margin-right: 0;
+}
+
+.twc-primary-nav > li > a {
+    color: #222;
+    font: 300 10px/1.4 'Helvetica Neue', Arial, sans-serif;
+    letter-spacing: 1.5px;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    display: flex;
+    align-items: center;
+    height: 75px;
+    white-space: nowrap;
+    padding-block: 15px;
+}
+
+.twc-primary-nav > li > a:hover {
+    color: #888;
+}
+
+/* Ensure proper spacing between columns */
+.twc-primary-nav .sub-menu > li:not(:last-child) {
+    margin-right: 0;
+}
+
+/* Megamenu Panel (shared container) */
+.twc-primary-nav > li:hover > .sub-menu,
+.twc-primary-nav > li > *:hover {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+.twc-primary-nav > li > .sub-menu {
+    display: flex;
+    justify-content: flex-start;
+    align-items: stretch;
+    gap: 40px;
+    padding: 10px 50px;
+    z-index: 9999;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+    position: absolute;
+    top: unset;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    transform: translateY(100%);
+    width: 100%;
+    background: #fff;
+    border-bottom: 1px solid #ddd;
+}
+
+
+
+.twc-primary-nav .sub-menu > li {
+    position: relative; /* Add this for proper positioning of sub-sub-menus */
+    display: flex;
+    flex-direction: column;
+    max-width: 300px;
+    width: 100%;
+}
+
+.twc-primary-nav .sub-menu > li > a {
+    font-weight: bold;
+    display: block;
+    color: #333;
+    text-transform: uppercase;
+    font-size: 13px;
+    letter-spacing: 1px;
+    padding-bottom: 8px;
+    white-space: nowrap;
+}
+
+.twc-primary-nav .sub-menu > li > a:hover {
+    color: #888;
+}
+
+.twc-primary-nav .sub-menu > li > .sub-menu {
+    display: flex;
+    flex-direction: column;
+    position: inherit;
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+    background: transparent;
+    flex-wrap: wrap;
+    align-content: space-between;
+    align-items: baseline;
+}
+
+.twc-primary-nav .sub-menu > li > .sub-menu li a {
+    font-weight: normal;
+    padding-block: 1px;
+    color: #555;
+    text-transform: none;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+    white-space: normal;
+    line-height: 1.4;
+}
+
+.twc-primary-nav .sub-menu > li > .sub-menu li a:hover {
+    color: #000;
+}
+
+/* Sub-sub-menu items */
+.twc-primary-nav .sub-menu > li > .sub-menu li {
+    display: flex;
+    width: 100%;
+    text-align: left;
+}
+
+/* Utility Navigation */
+.twc-utility-nav-wrapper {
+    flex: 0 0 auto;
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+}
+
+.twc-utility-nav {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 25px;
+}
+
+.twc-utility-nav a {
+    color: #222;
+    font: 300 13px/1.4 'Helvetica Neue', Arial, sans-serif;
+    letter-spacing: 1.5px;
+    text-decoration: none;
+    text-transform: uppercase;
+    padding: 12px 0;
+    transition: color 0.3s ease;
+}
+
+.twc-utility-nav a:hover {
+    color: #888;
+}
+
+/* Submenu Tree */
+
+/* Target ALL DEPTH 1 ITEMS (e.g., "Polyurethane Foam Sheets") */
+/* Depth 0 (Parent Items) */
+/*
+.twc-primary-nav > .menu-item.has-submenu > a {
+    background: rgb(255, 255, 255);
+}
+*/
+
+/* ===== DEPTH 1 (ROWS) ===== */
+/* Target the PARENT container of Depth 1 items (rows) */
+.twc-primary-nav .sub-menu-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Adjust column width */
+    gap: 20px; /* Spacing between columns */
+    row-gap: 0px;
+    width: 100%;
+    column-gap: 50px;
+}
+
+/* Style Depth 1 items (rows) */
+.twc-primary-nav .sub-menu-list > li > a {
+    font-weight: bold;
+    color: #333;
+    text-transform: uppercase;
+    font-size: 13px;
+    letter-spacing: 1px;
+    padding-bottom: 10px;
+    display: flex;
+    padding-top: 10px;
+}
+
+.twc-primary-nav .sub-menu-list > li > a:hover {
+    color: #c1b2a3;
+}
+
+/* ===== DEPTH 2 (COLUMNS) ===== */
+/* Target Depth 2 items (columns under each row) */
+.twc-primary-nav .sub-menu--level-1 .menu-item > a {
+    font-weight: normal;
+    padding-block: 1px;
+    color: #555;
+    text-transform: none;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+    white-space: normal;
+    line-height: 1.4;
+    transition: background 0.3s ease;
+}
+
+.twc-primary-nav .sub-menu--level-1 .menu-item > a:hover {
+    color: #c1b2a3;
+}
+
+/* Submenu Image Text */
+.image-panel-textbox {
+    position: absolute;
+    background: transparent;
+    color: black;
+    width: 600px;
+    top: 260px;
+    padding: 10px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.4;
+    text-align: left;
+    box-shadow: inset 0 0 0 1px #200000;
+}
+
+
+/* Responsive */
+@media (max-width: 992px) {
+    .header-navbar.twc-header {
+        flex-direction: column;
+        padding: 15px 20px;
+    }
+
+    .header-logo.twc-logo {
+        margin: 10px auto;
+        text-align: center;
+    }
+
+    .twc-primary-nav {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .twc-primary-nav .sub-menu,
+    .twc-primary-nav .sub-menu .sub-menu {
+        position: static;
+        width: 100%;
+        transform: none;
+        box-shadow: none;
+        display: none;
+    }
+
+    .twc-utility-nav-wrapper {
+        width: 100%;
+        margin-top: 20px;
+        text-align: center;
+    }
+
+    .twc-utility-nav {
+        justify-content: center;
+    }
+}
+
+
+
+
+
+
+
+/* Submenu Image Panel aligned to far right */
+.sub-menu-image-panel {
+    flex: 0 0 436px;
+    margin-left: auto;
+    background: #ebe4dd; /* Replace with desired background */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    box-shadow: inset 0 0 0 1px #e5e5e5;
+}
+
+/* Ensure image and text don't exceed panel size */
+.sub-menu-image-panel img {
+    display: block;
+    margin-bottom: 1px;
+    width: 436px;
+    height: 232px;
+    object-position: center; /* Centers the image */
+    border-radius: 0px;
+}
+
+.image-panel-textbox {
+    padding: 15px;
+    text-align: center;
+    font-size: 15px;
+    color: #333;
+    font-weight: bold;
+    visibility: hidden;
+}
+
+/* Show the text box on hover */
+
+.thread-sleep-content > h3 {
+    font-weight: bold;
+    color: #333;
+    text-transform: uppercase;
+    font-size: 20px;
+    letter-spacing: 1px;
+}
+
+.thread-sleep-content > p {
+    text-align: left;
+    font-size: 16px;
+    color: #333;
+    font-weight: normal;
+    text-transform: none;
+    letter-spacing: 0.5px;
+    line-height: 1.4;
+    white-space: normal;
+    transition: background 0.3s ease;
+    position: relative;
+    bottom: 12px;
+}
+
+.thread-sleep-content > a {
+    position: relative;
+    font-size: 12px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #333;
+    font-weight: bold;
+    bottom: 26px;
+}
+
+.thread-sleep-content > a:hover {
+    color: #c1b2a3;
+}
+
+.thread-sleep-column > h4 {
+    font-weight: bold;
+    color: #333;
+    text-transform: uppercase;
+    font-size: 15px;
+    letter-spacing: 1px;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+}
+
+.thread-sleep-column-left > h4 {
+    font-weight: bold;
+    color: #333;
+    text-transform: uppercase;
+    font-size: 15px;
+    letter-spacing: 1px;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+}
+
+
+.thread-sleep-column > ul > li > a {
+    text-align: left;
+    font-size: 13px;
+    color: #333;
+    font-weight: normal;
+    text-transform: none;
+    letter-spacing: 0.5px;
+    line-height: 1.4;
+    white-space: normal;
+    transition: background 0.3s ease;
+}
+
+.thread-sleep-column-left > ul > li > a {
+    text-align: left;
+    font-size: 13px;
+    color: #333;
+    font-weight: normal;
+    text-transform: none;
+    letter-spacing: 0.5px;
+    line-height: 1.4;
+    white-space: normal;
+    transition: background 0.3s ease;
+}
+
+.thread-sleep-column > ul > li > a:hover {
+    color: #c1b2a3;
+}
+
+.thread-sleep-column-left > ul > li > a:hover {
+    color: #c1b2a3;
+}
+
+.thread-sleep-lists {
+    display: flex;
+    flex-direction: row-reverse;
+    gap: 2rem;
+    justify-content: center;
+    padding-top: 10px;
+}
+
+.thread-sleep-content {
+    padding: 25px;
+    border-bottom: #c1b2a3 solid 0.5px;
+    padding-bottom: 0px;
+}
+
+.thread-sleep-column-left > ul {
+    border-right: #c1b2a3 solid 1px;
+}
+
+.thread-sleep-column-left > ul > li {
+    padding-right: 30px ;
+}
+
+/* Header Icons */
+
+.twc-header-icons {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    margin-left: auto;
+    padding: 15px;
+    padding-top: 25px;
+}
+
+.twc-header-icons::before {
+    content: "";
+    display: inline-block;
+    height: 45px; /* ← Your desired height */
+    width: 1px;
+    background-color: #dedede;
+    margin-top: -10px;
+}
+
+.twc-header-icons::after {
+    content: "";
+    display: inline-block;
+    height: 45px; /* ← Your desired height */
+    width: 1px;
+    background-color: #dedede;
+    margin-top: -10px;
+}
+
+
+.twc-header-icons a {
+    text-decoration: none;
+    color: #333;
+}
+
+.twc-header-icons .material-symbols-outlined {
+    font-size: 28px; /* Adjust icon size */
+    line-height: 1;
+    font-variation-settings:
+    'FILL' 0,    /* 0 = outline, 1 = filled */
+    'wght' 100,  /* Weight: 100–700+ */
+    'GRAD' 0,    /* Grade (thickness adjustment) */
+    'opsz' 28;   /* Optical size: matches icon size */
+}

@@ -1,4 +1,6 @@
 {
+  "remote.useLocalServer": true,
+  "remote.autoForwardPorts": false,
   "remote.extensionKind": {
     "*": ["ui"]
   }

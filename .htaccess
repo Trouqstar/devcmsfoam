@@ -13,11 +13,6 @@ RewriteCond %{QUERY_STRING} action=async_litespeed
 RewriteRule .* - [E=noabort:1]
 ### marker ASYNC end ###
 
-### marker NOCACHE COOKIES start ###
-RewriteCond %{HTTP_COOKIE} twc_wishlist
-RewriteRule .* - [E=Cache-Control:no-cache]
-### marker NOCACHE COOKIES end ###
-
 ### marker CACHE RESOURCE start ###
 RewriteRule wp-content/.*/[^/]*(responsive|css|js|dynamic|loader|fonts)\.php - [E=cache-control:max-age=3600]
 ### marker CACHE RESOURCE end ###

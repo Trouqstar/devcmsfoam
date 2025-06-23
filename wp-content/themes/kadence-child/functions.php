@@ -395,4 +395,5 @@ add_action('wp_ajax_nopriv_twc_wishlist_toggle', function() {
     nocache_headers();
 }, 1);
 
+
 // End Of Line

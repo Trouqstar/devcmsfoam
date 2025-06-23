@@ -20,7 +20,6 @@
 
 .header-navbar.twc-header {
     display: flex !important;
-    gap: 40px;
     align-items: center;
     justify-content: space-between;
     z-index: 1000;
@@ -31,6 +30,7 @@
     flex: 0 0 auto;
     display: flex;
     align-items: center;
+    padding-right: 20px;
 }
 
 .header-logo.twc-logo img {

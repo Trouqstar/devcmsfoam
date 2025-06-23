@@ -379,4 +379,20 @@ function enqueue_wishlist_scripts() {
 }
 add_action('wp_enqueue_scripts', 'enqueue_wishlist_scripts');
 
+// Force no-cache for favourites page
+add_action('template_redirect', function() {
+    if (is_page('favourites')) {
+        nocache_headers();
+        header("Cache-Control: no-store, no-cache, must-revalidate");
+    }
+});
+
+// AJAX cache control
+add_action('wp_ajax_twc_wishlist_toggle', function() {
+    nocache_headers();
+}, 1);
+add_action('wp_ajax_nopriv_twc_wishlist_toggle', function() {
+    nocache_headers();
+}, 1);
+
 // End Of Line

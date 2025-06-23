@@ -72,3 +72,17 @@
 .loop-entry .entry-content-wrap {
     background: rgb(153, 0, 255);
 }
+
+/* Add to wishlist.css */
+.add-to-wishlist.loading .heart-icon {
+    animation: spin 0.8s linear infinite;
+    opacity: 0.7;
+}
+
+.wishlist-product {
+    transition: opacity 0.3s, transform 0.3s;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}

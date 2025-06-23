@@ -1007,3 +1007,21 @@
 [20-Jun-2025 23:13:26 UTC] PHP Warning:  Attempt to read property "ID" on null in /home/rsaczlopir/devcmsfoam.co.uk/wp-content/plugins/woocommerce/includes/admin/class-wc-admin-post-types.php on line 858
 [20-Jun-2025 23:13:26 UTC] PHP Warning:  Attempt to read property "ID" on null in /home/rsaczlopir/devcmsfoam.co.uk/wp-content/plugins/woocommerce/includes/admin/class-wc-admin-post-types.php on line 862
 [20-Jun-2025 23:13:26 UTC] PHP Warning:  Attempt to read property "ID" on null in /home/rsaczlopir/devcmsfoam.co.uk/wp-content/plugins/woocommerce/includes/admin/class-wc-admin-post-types.php on line 866
+[23-Jun-2025 19:07:40 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function add_action() in /home/rsaczlopir/devcmsfoam.co.uk/wp-config.php:97
+Stack trace:
+#0 /home/rsaczlopir/devcmsfoam.co.uk/wp-load.php(50): require_once()
+#1 /home/rsaczlopir/devcmsfoam.co.uk/wp-admin/admin.php(35): require_once('/home/rsaczlopi...')
+#2 {main}
+  thrown in /home/rsaczlopir/devcmsfoam.co.uk/wp-config.php on line 97
+[23-Jun-2025 19:07:43 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function add_action() in /home/rsaczlopir/devcmsfoam.co.uk/wp-config.php:97
+Stack trace:
+#0 /home/rsaczlopir/devcmsfoam.co.uk/wp-load.php(50): require_once()
+#1 /home/rsaczlopir/devcmsfoam.co.uk/wp-admin/admin.php(35): require_once('/home/rsaczlopi...')
+#2 {main}
+  thrown in /home/rsaczlopir/devcmsfoam.co.uk/wp-config.php on line 97
+[23-Jun-2025 19:07:47 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function add_action() in /home/rsaczlopir/devcmsfoam.co.uk/wp-config.php:97
+Stack trace:
+#0 /home/rsaczlopir/devcmsfoam.co.uk/wp-load.php(50): require_once()
+#1 /home/rsaczlopir/devcmsfoam.co.uk/wp-admin/admin-ajax.php(22): require_once('/home/rsaczlopi...')
+#2 {main}
+  thrown in /home/rsaczlopir/devcmsfoam.co.uk/wp-config.php on line 97

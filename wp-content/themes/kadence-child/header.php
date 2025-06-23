@@ -79,10 +79,10 @@ if (!defined('ABSPATH')) {
 
 <div class="twc-header-icons">
     <!-- Standard Icons -->
-    <a href="/wishlist">
+    <a href="/favourites">
         <span class="material-symbols-outlined">favorite</span>
     </a>
-    <a href="/account">
+    <a href="/my-account">
         <span class="material-symbols-outlined">person</span>
     </a>
     <a href="/cart">

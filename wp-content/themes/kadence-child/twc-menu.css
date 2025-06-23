@@ -487,16 +487,6 @@
     margin-top: -10px;
 }
 
-.twc-header-icons::after {
-    content: "";
-    display: inline-block;
-    height: 45px; /* ← Your desired height */
-    width: 1px;
-    background-color: #dedede;
-    margin-top: -10px;
-}
-
-
 .twc-header-icons a {
     text-decoration: none;
     color: #333;
@@ -510,4 +500,152 @@
     'wght' 100,  /* Weight: 100–700+ */
     'GRAD' 0,    /* Grade (thickness adjustment) */
     'opsz' 28;   /* Optical size: matches icon size */
+}
+
+/* Header Icons Utility*/
+
+.twc-header-icons-utility {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    margin-left: auto;
+    padding: 15px;
+    padding-top: 25px;
+    padding-right: 0px;
+}
+
+.twc-header-icons-utility::before {
+    content: "";
+    display: inline-block;
+    height: 45px; /* ← Your desired height */
+    width: 1px;
+    background-color: #dedede;
+    margin-top: -10px;
+}
+
+.twc-header-icons-utility a {
+    text-decoration: none;
+    color: #333;
+}
+
+.twc-header-icons-utility .material-symbols-outlined {
+    font-size: 28px; /* Adjust icon size */
+    line-height: 1;
+    font-variation-settings:
+    'FILL' 0,    /* 0 = outline, 1 = filled */
+    'wght' 100,  /* Weight: 100–700+ */
+    'GRAD' 0,    /* Grade (thickness adjustment) */
+    'opsz' 28;   /* Optical size: matches icon size */
+}
+
+/* Banner Menu */
+.banner-menu {
+    box-sizing: inherit;
+    position: sticky;
+    z-index: 100;
+    display: flex;
+    justify-content: end;
+    gap: 10px;
+    padding: 10px;
+    font-size: 14px;
+}
+
+.banner-menu a {
+    color: #333;
+}
+
+/* Search Icon Expandable */
+/* Container */
+.header-search {
+    display: flex;
+    align-items: center;
+    position: relative;
+    gap: 0.5rem;
+}
+
+/* Search form initially collapsed */
+.search-form {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transform: scaleX(0);
+    transform-origin: right; /* Expand to the left */
+    opacity: 0;
+    pointer-events: none;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Form expanded */
+.header-search.active .search-form {
+    transform: scaleX(1);
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* Input styling */
+.search-field {
+    flex: 1;
+    min-width: 150px;
+    padding: 0.5rem 0.75rem;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: white;
+    color: #000;
+}
+
+/* Shared button base */
+.header-search .search-toggle,
+.header-search .search-submit {
+    all: unset;
+    appearance: none;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    padding: 6px;
+    border-radius: 4px;
+    transition: background 0.2s ease;
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+    background-color: transparent;
+    color: inherit;
+}
+
+.header-search .search-submit {
+    margin-right: 0.25rem;
+}
+
+/* Icon switch styling (optional fallback if JS not used) */
+.header-search .search-toggle .material-symbols-outlined {
+    transition: transform 0.2s ease;
+}
+
+/* Responsive support */
+@media (max-width: 768px) {
+    .header-search.active .search-form {
+        max-width: 100%;
+    }
+
+    .search-field {
+        min-width: 100px;
+    }
+}
+
+.search-toggle .material-symbols-outlined,
+.search-submit .material-symbols-outlined {
+    font-size: 28px; /* Adjust icon size */
+    line-height: 1;
+    font-variation-settings:
+    'FILL' 0,    /* 0 = outline, 1 = filled */
+    'wght' 100,  /* Weight: 100–700+ */
+    'GRAD' 0,    /* Grade (thickness adjustment) */
+    'opsz' 28;   /* Optical size: matches icon size */
+}
+
+.search-form input[type=search],.search-form input.search-field {
+    padding-right: 60px;
+    width: 400px;
 }

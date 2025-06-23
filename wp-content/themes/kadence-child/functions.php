@@ -298,4 +298,18 @@ function twc_enqueue_scripts() {
 }
 add_action('wp_enqueue_scripts', 'twc_enqueue_scripts');
 
+//Search Toggle
+
+function twc_enqueue_header_scripts() {
+    wp_enqueue_script(
+        'twc-search-toggle',
+        get_stylesheet_directory_uri() . '/js/search-toggle.js',
+        array(), // Dependencies (e.g. jQuery if needed)
+        null,    // Version
+        true     // Load in footer
+    );
+}
+add_action('wp_enqueue_scripts', 'twc_enqueue_header_scripts');
+
+
 // End Of Line

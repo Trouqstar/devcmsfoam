@@ -60,16 +60,48 @@ if (!defined('ABSPATH')) {
             </nav>
             <?php endif; ?>
 
-            <!-- Icon Buttons (Search, Wishlist, Account, Cart) -->
-            <div class="twc-header-icons">
-                <a href="/search"><span class="material-symbols-outlined">search</span></a>
-                <a href="/wishlist"><span class="material-symbols-outlined">favorite</span></a>
-                <a href="/account"><span class="material-symbols-outlined">person</span></a>
-                <a href="/cart"><span class="material-symbols-outlined">shopping_bag</span></a>
-                <a href="/live-chat"><span class="material-symbols-outlined">robot_2</span></a>
-                <a href="/faq"><span class="material-symbols-outlined">help_center</span></a>
-                <a href="/settings"><span class="material-symbols-outlined">settings_b_roll</span></a>
-            </div>
+<!-- Icon Buttons (Search, Wishlist, Account, Cart) -->
 
-        </div> <!-- /.header-navbar -->
-    </header>
+    <!-- Expandable Search -->
+<div class="header-search">
+    <form class="search-form" role="search" method="get" action="<?php echo esc_url(home_url('/')); ?>">
+        <input type="search" class="search-field" placeholder="Search..." name="s" />
+        <button type="submit" class="search-submit">
+            <span class="material-symbols-outlined">search</span>
+        </button>
+    </form>
+    <button class="search-toggle" aria-label="Toggle search">
+        <span class="material-symbols-outlined">search</span>
+    </button>
+</div>
+
+
+
+<div class="twc-header-icons">
+    <!-- Standard Icons -->
+    <a href="/wishlist">
+        <span class="material-symbols-outlined">favorite</span>
+    </a>
+    <a href="/account">
+        <span class="material-symbols-outlined">person</span>
+    </a>
+    <a href="/cart">
+        <span class="material-symbols-outlined">shopping_bag</span>
+    </a>
+</div>
+
+<!-- Utility Icons -->
+<div class="twc-header-icons-utility">
+    <a href="/live-chat">
+        <span class="material-symbols-outlined">robot_2</span>
+    </a>
+    <a href="/faq">
+        <span class="material-symbols-outlined">help_center</span>
+    </a>
+    <a href="/settings">
+        <span class="material-symbols-outlined">settings_b_roll</span>
+    </a>
+</div>
+
+</div> <!-- /.header-navbar -->
+</header>

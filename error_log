@@ -106,3 +106,4 @@ Stack trace:
 [23-Jun-2025 19:43:57 UTC] PHP Warning:  Cannot modify header information - headers already sent in /home/rsaczlopir/devcmsfoam.co.uk/wp-content/themes/kadence-child/functions.php on line 321
 [23-Jun-2025 19:45:09 UTC] PHP Warning:  Cannot modify header information - headers already sent in /home/rsaczlopir/devcmsfoam.co.uk/wp-content/themes/kadence-child/functions.php on line 321
 [23-Jun-2025 19:45:58 UTC] PHP Warning:  Cannot modify header information - headers already sent in /home/rsaczlopir/devcmsfoam.co.uk/wp-content/themes/kadence-child/functions.php on line 321
+[23-Jun-2025 19:47:37 UTC] PHP Warning:  Cannot modify header information - headers already sent in /home/rsaczlopir/devcmsfoam.co.uk/wp-content/themes/kadence-child/functions.php on line 321

@@ -396,4 +396,18 @@ add_action('wp_ajax_nopriv_twc_wishlist_toggle', function() {
 }, 1);
 
 
+function enqueue_favourites_cleanup_script() {
+    if (is_page('favourites')) {
+        wp_enqueue_script(
+            'favourites-cleanup-js',
+            get_stylesheet_directory_uri() . '/js/favourites-cleanup.js',
+            array(),
+            '1.0',
+            true
+        );
+    }
+}
+add_action('wp_enqueue_scripts', 'enqueue_favourites_cleanup_script');
+
+
 // End Of Line

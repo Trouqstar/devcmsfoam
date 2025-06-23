@@ -421,6 +421,7 @@
     line-height: 1.4;
     white-space: normal;
     transition: background 0.3s ease;
+    text-decoration: none;
 }
 
 .thread-sleep-column-left > ul > li > a {
@@ -433,6 +434,7 @@
     line-height: 1.4;
     white-space: normal;
     transition: background 0.3s ease;
+    text-decoration: none;
 }
 
 .thread-sleep-column > ul > li > a:hover {

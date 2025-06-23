@@ -311,5 +311,72 @@ function twc_enqueue_header_scripts() {
 }
 add_action('wp_enqueue_scripts', 'twc_enqueue_header_scripts');
 
+/**
+ * Wishlist functionality for WooCommerce
+ */
+
+// Register wishlist cookie/location
+function init_wishlist() {
+    if (!isset($_COOKIE['twc_wishlist'])) {
+        setcookie('twc_wishlist', json_encode([]), time() + (86400 * 30), "/");
+    }
+}
+add_action('init', 'init_wishlist');
+
+// Display wishlist products
+function display_wishlist_products() {
+    $wishlist = isset($_COOKIE['twc_wishlist']) ? 
+        json_decode(stripslashes($_COOKIE['twc_wishlist']), true) : 
+        [];
+
+    if (empty($wishlist)) {
+        echo '<p class="wishlist-empty">You haven\'t saved any items yet.</p>';
+        return;
+    }
+
+    $args = [
+        'post_type'      => 'product',
+        'post__in'       => array_map('intval', $wishlist),
+        'posts_per_page' => -1,
+        'orderby'        => 'post__in'
+    ];
+
+    $products = new WP_Query($args);
+
+    if ($products->have_posts()) {
+        echo '<div class="wishlist-products">';
+        while ($products->have_posts()) {
+            $products->the_post();
+            global $product;
+            
+            // Add remove button to each product
+            echo '<div class="wishlist-product" data-product-id="' . esc_attr($product->get_id()) . '">';
+            echo '<button class="remove-from-wishlist" aria-label="Remove from wishlist">×</button>';
+            wc_get_template_part('content', 'product');
+            echo '</div>';
+        }
+        echo '</div>';
+        wp_reset_postdata();
+    } else {
+        echo '<p class="wishlist-empty">No saved items found.</p>';
+    }
+}
+
+// Add wishlist button to product loops
+function add_wishlist_button() {
+    global $product;
+    echo '<button class="add-to-wishlist" data-product-id="' . esc_attr($product->get_id()) . '" aria-label="Add to wishlist">
+        <span class="heart-icon">♡</span>
+    </button>';
+}
+add_action('woocommerce_after_shop_loop_item', 'add_wishlist_button', 15);
+add_action('woocommerce_single_product_summary', 'add_wishlist_button', 35);
+
+// Enqueue wishlist scripts
+function enqueue_wishlist_scripts() {
+    wp_enqueue_script('wishlist-js', get_stylesheet_directory_uri() . '/js/wishlist.js', array(), '1.0', true);
+    wp_enqueue_style('wishlist-css', get_stylesheet_directory_uri() . '/css/wishlist.css');
+}
+add_action('wp_enqueue_scripts', 'enqueue_wishlist_scripts');
 
 // End Of Line

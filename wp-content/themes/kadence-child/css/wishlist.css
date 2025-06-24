@@ -107,3 +107,12 @@
 @keyframes spin {
     to { transform: rotate(360deg); }
 }
+
+.wishlist-product.removing {
+    opacity: 0;
+    transform: translateX(-20px);
+    transition: opacity 0.3s, transform 0.3s;
+    pointer-events: none;
+    /* Preserve height & spacing until it's removed */
+    will-change: opacity, transform;
+}

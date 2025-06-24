@@ -84,7 +84,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
             btn.classList.toggle('active', isActive);
             btn.setAttribute('aria-pressed', isActive);
-            btn.querySelector('.heart-icon').textContent = isActive ? '♥' : '♡'; // You can switch to a class if preferred
+            btn.querySelector('.heart-icon').classList.toggle('in-wishlist', isActive); // You can switch to a class if preferred
         });
 
         document.querySelectorAll('.wishlist-count').forEach(el => {
@@ -96,9 +96,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const productElement = document.querySelector(`.wishlist-product[data-product-id="${productId}"]`);
         if (!productElement) return;
 
-        productElement.style.transition = 'opacity 0.3s, transform 0.3s';
-        productElement.style.opacity = '0';
-        productElement.style.transform = 'translateX(-20px)';
+        productElement.classList.add('removing');
 
         setTimeout(() => {
             productElement.remove();

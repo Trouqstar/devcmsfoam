@@ -16,10 +16,11 @@ document.addEventListener('DOMContentLoaded', function () {
         button.classList.add('loading');
 
         try {
-            const currentInWishlist = wishlist.includes(productId);
-            const newWishlist = currentInWishlist
-                ? wishlist.filter(id => id !== productId)
-                : [...wishlist, productId];
+            const currentWishlist = getWishlist(); // always fresh
+            const isInWishlist = currentWishlist.includes(productId);
+            const newWishlist = isInWishlist
+                ? currentWishlist.filter(id => id !== productId)
+                : [...currentWishlist, productId];
 
             updateStorage(newWishlist);
             updateAllWishlistButtons(newWishlist);
@@ -44,7 +45,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }
 
             // Remove product visually if we're on the favourites page and it was unfavourited
-            if (isFavouritesPage && currentInWishlist) {
+            if (isFavouritesPage && isInWishlist) {
                 removeProductFromDisplay(productId);
             }
 

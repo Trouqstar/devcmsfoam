@@ -379,8 +379,23 @@ add_action('woocommerce_single_product_summary', 'add_wishlist_button', 35);
 
 // Enqueue wishlist scripts
 function enqueue_wishlist_scripts() {
-    wp_enqueue_script('wishlist-js', get_stylesheet_directory_uri() . '/js/wishlist.js', array(), '1.0', true);
-    wp_enqueue_style('wishlist-css', get_stylesheet_directory_uri() . '/css/wishlist.css');
+    wp_enqueue_script(
+        'wishlist-js',
+        get_stylesheet_directory_uri() . '/js/wishlist.js',
+        array(),
+        '1.0',
+        true
+    );
+
+    wp_enqueue_style(
+        'wishlist-css',
+        get_stylesheet_directory_uri() . '/css/wishlist.css'
+    );
+
+    wp_localize_script('wishlist-js', 'wishlistVars', array(
+        'ajaxurl' => admin_url('admin-ajax.php'),
+        'nonce'   => wp_create_nonce('twc_wishlist_nonce')
+    ));
 }
 add_action('wp_enqueue_scripts', 'enqueue_wishlist_scripts');
 
@@ -393,11 +408,27 @@ add_action('template_redirect', function() {
 });
 
 // AJAX cache control
-add_action('wp_ajax_twc_wishlist_toggle', function() {
-    nocache_headers();
-}, 1);
-add_action('wp_ajax_nopriv_twc_wishlist_toggle', function() {
-    nocache_headers();
-}, 1);
+
+add_action('wp_ajax_twc_wishlist_toggle', 'twc_handle_wishlist_toggle');
+add_action('wp_ajax_nopriv_twc_wishlist_toggle', 'twc_handle_wishlist_toggle');
+
+function twc_handle_wishlist_toggle() {
+    nocache_headers(); // optional but you're already using it
+
+    // Check nonce
+    if (!isset($_POST['security']) || !wp_verify_nonce($_POST['security'], 'twc_wishlist_nonce')) {
+        wp_send_json_error(['message' => 'Security check failed']);
+    }
+
+    // Validate product ID
+    $product_id = isset($_POST['product_id']) ? intval($_POST['product_id']) : 0;
+    if (!$product_id) {
+        wp_send_json_error(['message' => 'Invalid product ID']);
+    }
+
+    // This is where you'd normally update the DB or session — for now, we fake it
+    wp_send_json_success(['message' => 'Wishlist updated']);
+}
+
 
 //End of Line

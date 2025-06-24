@@ -1,109 +1,22 @@
-[20-Jun-2025 22:24:36 UTC] WordPress database error Table 'soft_loginizer_logs' already exists for query CREATE TABLE `soft_loginizer_logs` (
-				`username` varchar(255) NOT NULL DEFAULT '',
-				`time` int(10) NOT NULL DEFAULT '0',
-				`count` int(10) NOT NULL DEFAULT '0',
-				`lockout` int(10) NOT NULL DEFAULT '0',
-				`ip` varchar(255) NOT NULL DEFAULT '',
-				`url` varchar(255) NOT NULL DEFAULT '',
-				UNIQUE KEY `ip` (`ip`)
-			) DEFAULT CHARSET=utf8; made by require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('plugins_loaded'), WP_Hook->do_action, WP_Hook->apply_filters, loginizer_load_plugin, loginizer_update_check, loginizer_activation
-[23-Jun-2025 17:27:59 UTC] PHP Warning:  Cannot modify header information - headers already sent in /home/rsaczlopir/devcmsfoam.co.uk/wp-content/themes/kadence-child/functions.php on line 321
-[23-Jun-2025 17:28:45 UTC] PHP Warning:  Cannot modify header information - headers already sent in /home/rsaczlopir/devcmsfoam.co.uk/wp-content/themes/kadence-child/functions.php on line 321
-[23-Jun-2025 17:29:30 UTC] PHP Warning:  Cannot modify header information - headers already sent in /home/rsaczlopir/devcmsfoam.co.uk/wp-content/themes/kadence-child/functions.php on line 321
-[23-Jun-2025 17:29:39 UTC] PHP Warning:  Cannot modify header information - headers already sent in /home/rsaczlopir/devcmsfoam.co.uk/wp-content/themes/kadence-child/functions.php on line 321
-[23-Jun-2025 17:29:59 UTC] PHP Warning:  Cannot modify header information - headers already sent in /home/rsaczlopir/devcmsfoam.co.uk/wp-content/themes/kadence-child/functions.php on line 321
-[23-Jun-2025 17:30:31 UTC] PHP Warning:  Cannot modify header information - headers already sent in /home/rsaczlopir/devcmsfoam.co.uk/wp-content/themes/kadence-child/functions.php on line 321
-[23-Jun-2025 17:30:44 UTC] PHP Warning:  Cannot modify header information - headers already sent in /home/rsaczlopir/devcmsfoam.co.uk/wp-content/themes/kadence-child/functions.php on line 321
-[23-Jun-2025 17:33:12 UTC] PHP Warning:  Cannot modify header information - headers already sent in /home/rsaczlopir/devcmsfoam.co.uk/wp-content/themes/kadence-child/functions.php on line 321
-[23-Jun-2025 17:35:13 UTC] PHP Warning:  Cannot modify header information - headers already sent in /home/rsaczlopir/devcmsfoam.co.uk/wp-content/themes/kadence-child/functions.php on line 321
-[23-Jun-2025 17:35:49 UTC] PHP Warning:  Cannot modify header information - headers already sent in /home/rsaczlopir/devcmsfoam.co.uk/wp-content/themes/kadence-child/functions.php on line 321
-[23-Jun-2025 17:36:31 UTC] PHP Warning:  Cannot modify header information - headers already sent in /home/rsaczlopir/devcmsfoam.co.uk/wp-content/themes/kadence-child/functions.php on line 321
-[23-Jun-2025 17:36:35 UTC] PHP Warning:  Cannot modify header information - headers already sent in /home/rsaczlopir/devcmsfoam.co.uk/wp-content/themes/kadence-child/functions.php on line 321
-[23-Jun-2025 17:39:10 UTC] PHP Warning:  Cannot modify header information - headers already sent in /home/rsaczlopir/devcmsfoam.co.uk/wp-content/themes/kadence-child/functions.php on line 321
-[23-Jun-2025 17:41:16 UTC] PHP Warning:  Cannot modify header information - headers already sent in /home/rsaczlopir/devcmsfoam.co.uk/wp-content/themes/kadence-child/functions.php on line 321
-[23-Jun-2025 17:43:27 UTC] PHP Warning:  Cannot modify header information - headers already sent in /home/rsaczlopir/devcmsfoam.co.uk/wp-content/themes/kadence-child/functions.php on line 321
-[23-Jun-2025 17:53:55 UTC] PHP Warning:  Cannot modify header information - headers already sent in /home/rsaczlopir/devcmsfoam.co.uk/wp-content/themes/kadence-child/functions.php on line 321
-[23-Jun-2025 17:54:30 UTC] PHP Warning:  Cannot modify header information - headers already sent in /home/rsaczlopir/devcmsfoam.co.uk/wp-content/themes/kadence-child/functions.php on line 321
-[23-Jun-2025 17:55:53 UTC] PHP Warning:  Cannot modify header information - headers already sent in /home/rsaczlopir/devcmsfoam.co.uk/wp-content/themes/kadence-child/functions.php on line 321
-[23-Jun-2025 17:59:03 UTC] PHP Warning:  Cannot modify header information - headers already sent in /home/rsaczlopir/devcmsfoam.co.uk/wp-content/themes/kadence-child/functions.php on line 321
-[23-Jun-2025 18:06:01 UTC] PHP Warning:  Cannot modify header information - headers already sent in /home/rsaczlopir/devcmsfoam.co.uk/wp-content/themes/kadence-child/functions.php on line 321
-[23-Jun-2025 18:07:13 UTC] PHP Warning:  Cannot modify header information - headers already sent in /home/rsaczlopir/devcmsfoam.co.uk/wp-content/themes/kadence-child/functions.php on line 321
-[23-Jun-2025 18:09:15 UTC] PHP Warning:  Cannot modify header information - headers already sent in /home/rsaczlopir/devcmsfoam.co.uk/wp-content/themes/kadence-child/functions.php on line 321
-[23-Jun-2025 18:11:16 UTC] PHP Warning:  Cannot modify header information - headers already sent in /home/rsaczlopir/devcmsfoam.co.uk/wp-content/themes/kadence-child/functions.php on line 321
-[23-Jun-2025 18:13:17 UTC] PHP Warning:  Cannot modify header information - headers already sent in /home/rsaczlopir/devcmsfoam.co.uk/wp-content/themes/kadence-child/functions.php on line 321
-[23-Jun-2025 18:15:18 UTC] PHP Warning:  Cannot modify header information - headers already sent in /home/rsaczlopir/devcmsfoam.co.uk/wp-content/themes/kadence-child/functions.php on line 321
-[23-Jun-2025 18:17:19 UTC] PHP Warning:  Cannot modify header information - headers already sent in /home/rsaczlopir/devcmsfoam.co.uk/wp-content/themes/kadence-child/functions.php on line 321
-[23-Jun-2025 18:19:41 UTC] PHP Warning:  Cannot modify header information - headers already sent in /home/rsaczlopir/devcmsfoam.co.uk/wp-content/themes/kadence-child/functions.php on line 318
-[23-Jun-2025 18:20:40 UTC] PHP Warning:  Cannot modify header information - headers already sent in /home/rsaczlopir/devcmsfoam.co.uk/wp-content/themes/kadence-child/functions.php on line 318
-[23-Jun-2025 18:21:26 UTC] PHP Warning:  Cannot modify header information - headers already sent in /home/rsaczlopir/devcmsfoam.co.uk/wp-content/themes/kadence-child/functions.php on line 318
-[23-Jun-2025 18:21:33 UTC] PHP Warning:  Cannot modify header information - headers already sent in /home/rsaczlopir/devcmsfoam.co.uk/wp-content/themes/kadence-child/functions.php on line 318
-[23-Jun-2025 18:23:30 UTC] PHP Warning:  Cannot modify header information - headers already sent in /home/rsaczlopir/devcmsfoam.co.uk/wp-content/themes/kadence-child/functions.php on line 318
-[23-Jun-2025 18:23:30 UTC] PHP Warning:  Cannot modify header information - headers already sent in /home/rsaczlopir/devcmsfoam.co.uk/wp-content/themes/kadence-child/functions.php on line 318
-[23-Jun-2025 18:24:04 UTC] PHP Warning:  Cannot modify header information - headers already sent in /home/rsaczlopir/devcmsfoam.co.uk/wp-content/themes/kadence-child/functions.php on line 318
-[23-Jun-2025 18:24:30 UTC] PHP Warning:  Cannot modify header information - headers already sent in /home/rsaczlopir/devcmsfoam.co.uk/wp-content/themes/kadence-child/functions.php on line 318
-[23-Jun-2025 18:25:29 UTC] PHP Warning:  Cannot modify header information - headers already sent in /home/rsaczlopir/devcmsfoam.co.uk/wp-content/themes/kadence-child/functions.php on line 321
-[23-Jun-2025 18:26:31 UTC] PHP Warning:  Cannot modify header information - headers already sent in /home/rsaczlopir/devcmsfoam.co.uk/wp-content/themes/kadence-child/functions.php on line 321
-[23-Jun-2025 18:26:37 UTC] PHP Warning:  Cannot modify header information - headers already sent in /home/rsaczlopir/devcmsfoam.co.uk/wp-content/themes/kadence-child/functions.php on line 321
-[23-Jun-2025 18:27:30 UTC] PHP Warning:  Cannot modify header information - headers already sent in /home/rsaczlopir/devcmsfoam.co.uk/wp-content/themes/kadence-child/functions.php on line 321
-[23-Jun-2025 18:28:18 UTC] PHP Warning:  Cannot modify header information - headers already sent in /home/rsaczlopir/devcmsfoam.co.uk/wp-content/themes/kadence-child/functions.php on line 321
-[23-Jun-2025 18:28:29 UTC] PHP Warning:  Cannot modify header information - headers already sent in /home/rsaczlopir/devcmsfoam.co.uk/wp-content/themes/kadence-child/functions.php on line 321
-[23-Jun-2025 18:28:37 UTC] PHP Warning:  Cannot modify header information - headers already sent in /home/rsaczlopir/devcmsfoam.co.uk/wp-content/themes/kadence-child/functions.php on line 321
-[23-Jun-2025 18:30:33 UTC] PHP Warning:  Cannot modify header information - headers already sent in /home/rsaczlopir/devcmsfoam.co.uk/wp-content/themes/kadence-child/functions.php on line 321
-[23-Jun-2025 18:31:29 UTC] PHP Warning:  Cannot modify header information - headers already sent in /home/rsaczlopir/devcmsfoam.co.uk/wp-content/themes/kadence-child/functions.php on line 321
-[23-Jun-2025 18:32:34 UTC] PHP Warning:  Cannot modify header information - headers already sent in /home/rsaczlopir/devcmsfoam.co.uk/wp-content/themes/kadence-child/functions.php on line 321
-[23-Jun-2025 18:41:38 UTC] PHP Warning:  Cannot modify header information - headers already sent in /home/rsaczlopir/devcmsfoam.co.uk/wp-content/themes/kadence-child/functions.php on line 321
-[23-Jun-2025 18:44:17 UTC] PHP Warning:  Cannot modify header information - headers already sent in /home/rsaczlopir/devcmsfoam.co.uk/wp-content/themes/kadence-child/functions.php on line 321
-[23-Jun-2025 18:44:29 UTC] PHP Warning:  Cannot modify header information - headers already sent in /home/rsaczlopir/devcmsfoam.co.uk/wp-content/themes/kadence-child/functions.php on line 321
-[23-Jun-2025 18:49:52 UTC] PHP Warning:  Cannot modify header information - headers already sent in /home/rsaczlopir/devcmsfoam.co.uk/wp-content/themes/kadence-child/functions.php on line 321
-[23-Jun-2025 18:50:28 UTC] PHP Warning:  Cannot modify header information - headers already sent in /home/rsaczlopir/devcmsfoam.co.uk/wp-content/themes/kadence-child/functions.php on line 321
-[23-Jun-2025 18:50:44 UTC] PHP Warning:  Cannot modify header information - headers already sent in /home/rsaczlopir/devcmsfoam.co.uk/wp-content/themes/kadence-child/functions.php on line 321
-[23-Jun-2025 18:51:57 UTC] PHP Warning:  Cannot modify header information - headers already sent in /home/rsaczlopir/devcmsfoam.co.uk/wp-content/themes/kadence-child/functions.php on line 321
-[23-Jun-2025 18:53:59 UTC] PHP Warning:  Cannot modify header information - headers already sent in /home/rsaczlopir/devcmsfoam.co.uk/wp-content/themes/kadence-child/functions.php on line 321
-[23-Jun-2025 18:56:00 UTC] PHP Warning:  Cannot modify header information - headers already sent in /home/rsaczlopir/devcmsfoam.co.uk/wp-content/themes/kadence-child/functions.php on line 321
-[23-Jun-2025 18:57:00 UTC] PHP Warning:  Cannot modify header information - headers already sent in /home/rsaczlopir/devcmsfoam.co.uk/wp-content/themes/kadence-child/functions.php on line 321
-[23-Jun-2025 18:57:51 UTC] PHP Warning:  Cannot modify header information - headers already sent in /home/rsaczlopir/devcmsfoam.co.uk/wp-content/themes/kadence-child/functions.php on line 321
-[23-Jun-2025 18:58:45 UTC] PHP Warning:  Cannot modify header information - headers already sent in /home/rsaczlopir/devcmsfoam.co.uk/wp-content/themes/kadence-child/functions.php on line 321
-[23-Jun-2025 18:59:46 UTC] PHP Warning:  Cannot modify header information - headers already sent in /home/rsaczlopir/devcmsfoam.co.uk/wp-content/themes/kadence-child/functions.php on line 321
-[23-Jun-2025 19:00:46 UTC] PHP Warning:  Cannot modify header information - headers already sent in /home/rsaczlopir/devcmsfoam.co.uk/wp-content/themes/kadence-child/functions.php on line 321
-[23-Jun-2025 19:01:49 UTC] PHP Warning:  Cannot modify header information - headers already sent in /home/rsaczlopir/devcmsfoam.co.uk/wp-content/themes/kadence-child/functions.php on line 321
-[23-Jun-2025 19:02:29 UTC] PHP Warning:  Cannot modify header information - headers already sent in /home/rsaczlopir/devcmsfoam.co.uk/wp-content/themes/kadence-child/functions.php on line 321
-[23-Jun-2025 19:02:39 UTC] PHP Warning:  Cannot modify header information - headers already sent in /home/rsaczlopir/devcmsfoam.co.uk/wp-content/themes/kadence-child/functions.php on line 321
-[23-Jun-2025 19:03:28 UTC] PHP Warning:  Cannot modify header information - headers already sent in /home/rsaczlopir/devcmsfoam.co.uk/wp-content/themes/kadence-child/functions.php on line 321
-[23-Jun-2025 19:03:35 UTC] PHP Warning:  Cannot modify header information - headers already sent in /home/rsaczlopir/devcmsfoam.co.uk/wp-content/themes/kadence-child/functions.php on line 321
-[23-Jun-2025 19:04:45 UTC] PHP Warning:  Cannot modify header information - headers already sent in /home/rsaczlopir/devcmsfoam.co.uk/wp-content/themes/kadence-child/functions.php on line 321
-[23-Jun-2025 19:05:45 UTC] PHP Warning:  Cannot modify header information - headers already sent in /home/rsaczlopir/devcmsfoam.co.uk/wp-content/themes/kadence-child/functions.php on line 321
-[23-Jun-2025 19:06:46 UTC] PHP Warning:  Cannot modify header information - headers already sent in /home/rsaczlopir/devcmsfoam.co.uk/wp-content/themes/kadence-child/functions.php on line 321
-[23-Jun-2025 19:07:46 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function add_action() in /home/rsaczlopir/devcmsfoam.co.uk/wp-config.php:97
-Stack trace:
-#0 /home/rsaczlopir/devcmsfoam.co.uk/wp-load.php(50): require_once()
-#1 /home/rsaczlopir/devcmsfoam.co.uk/wp-blog-header.php(13): require_once('/home/rsaczlopi...')
-#2 /home/rsaczlopir/devcmsfoam.co.uk/index.php(17): require('/home/rsaczlopi...')
-#3 {main}
-  thrown in /home/rsaczlopir/devcmsfoam.co.uk/wp-config.php on line 97
-[23-Jun-2025 19:08:02 UTC] PHP Warning:  Cannot modify header information - headers already sent in /home/rsaczlopir/devcmsfoam.co.uk/wp-content/themes/kadence-child/functions.php on line 321
-[23-Jun-2025 19:08:48 UTC] PHP Warning:  Cannot modify header information - headers already sent in /home/rsaczlopir/devcmsfoam.co.uk/wp-content/themes/kadence-child/functions.php on line 321
-[23-Jun-2025 19:09:26 UTC] PHP Warning:  Cannot modify header information - headers already sent in /home/rsaczlopir/devcmsfoam.co.uk/wp-content/themes/kadence-child/functions.php on line 321
-[23-Jun-2025 19:09:41 UTC] PHP Warning:  Cannot modify header information - headers already sent in /home/rsaczlopir/devcmsfoam.co.uk/wp-content/themes/kadence-child/functions.php on line 321
-[23-Jun-2025 19:10:48 UTC] PHP Warning:  Cannot modify header information - headers already sent in /home/rsaczlopir/devcmsfoam.co.uk/wp-content/themes/kadence-child/functions.php on line 321
-[23-Jun-2025 19:12:12 UTC] PHP Warning:  Cannot modify header information - headers already sent in /home/rsaczlopir/devcmsfoam.co.uk/wp-content/themes/kadence-child/functions.php on line 321
-[23-Jun-2025 19:12:49 UTC] PHP Warning:  Cannot modify header information - headers already sent in /home/rsaczlopir/devcmsfoam.co.uk/wp-content/themes/kadence-child/functions.php on line 321
-[23-Jun-2025 19:14:51 UTC] PHP Warning:  Cannot modify header information - headers already sent in /home/rsaczlopir/devcmsfoam.co.uk/wp-content/themes/kadence-child/functions.php on line 321
-[23-Jun-2025 19:16:40 UTC] PHP Warning:  Cannot modify header information - headers already sent in /home/rsaczlopir/devcmsfoam.co.uk/wp-content/themes/kadence-child/functions.php on line 321
-[23-Jun-2025 19:21:06 UTC] PHP Warning:  Cannot modify header information - headers already sent in /home/rsaczlopir/devcmsfoam.co.uk/wp-content/themes/kadence-child/functions.php on line 321
-[23-Jun-2025 19:22:59 UTC] PHP Warning:  Cannot modify header information - headers already sent in /home/rsaczlopir/devcmsfoam.co.uk/wp-content/themes/kadence-child/functions.php on line 321
-[23-Jun-2025 19:23:30 UTC] PHP Warning:  Cannot modify header information - headers already sent in /home/rsaczlopir/devcmsfoam.co.uk/wp-content/themes/kadence-child/functions.php on line 321
-[23-Jun-2025 19:23:33 UTC] PHP Warning:  Cannot modify header information - headers already sent in /home/rsaczlopir/devcmsfoam.co.uk/wp-content/themes/kadence-child/functions.php on line 321
-[23-Jun-2025 19:31:50 UTC] PHP Warning:  Cannot modify header information - headers already sent in /home/rsaczlopir/devcmsfoam.co.uk/wp-content/themes/kadence-child/functions.php on line 321
-[23-Jun-2025 19:33:03 UTC] PHP Warning:  Cannot modify header information - headers already sent in /home/rsaczlopir/devcmsfoam.co.uk/wp-content/themes/kadence-child/functions.php on line 321
-[23-Jun-2025 19:34:03 UTC] PHP Warning:  Cannot modify header information - headers already sent in /home/rsaczlopir/devcmsfoam.co.uk/wp-content/themes/kadence-child/functions.php on line 321
-[23-Jun-2025 19:34:52 UTC] PHP Warning:  Cannot modify header information - headers already sent in /home/rsaczlopir/devcmsfoam.co.uk/wp-content/themes/kadence-child/functions.php on line 321
-[23-Jun-2025 19:35:53 UTC] PHP Warning:  Cannot modify header information - headers already sent in /home/rsaczlopir/devcmsfoam.co.uk/wp-content/themes/kadence-child/functions.php on line 321
-[23-Jun-2025 19:37:55 UTC] PHP Warning:  Cannot modify header information - headers already sent in /home/rsaczlopir/devcmsfoam.co.uk/wp-content/themes/kadence-child/functions.php on line 322
-[23-Jun-2025 19:38:38 UTC] PHP Warning:  Cannot modify header information - headers already sent in /home/rsaczlopir/devcmsfoam.co.uk/wp-content/themes/kadence-child/functions.php on line 322
-[23-Jun-2025 19:39:43 UTC] PHP Warning:  Cannot modify header information - headers already sent in /home/rsaczlopir/devcmsfoam.co.uk/wp-content/themes/kadence-child/functions.php on line 321
-[23-Jun-2025 19:41:57 UTC] PHP Warning:  Cannot modify header information - headers already sent in /home/rsaczlopir/devcmsfoam.co.uk/wp-content/themes/kadence-child/functions.php on line 326
-[23-Jun-2025 19:42:41 UTC] PHP Warning:  Cannot modify header information - headers already sent in /home/rsaczlopir/devcmsfoam.co.uk/wp-content/themes/kadence-child/functions.php on line 321
-[23-Jun-2025 19:43:57 UTC] PHP Warning:  Cannot modify header information - headers already sent in /home/rsaczlopir/devcmsfoam.co.uk/wp-content/themes/kadence-child/functions.php on line 321
-[23-Jun-2025 19:45:09 UTC] PHP Warning:  Cannot modify header information - headers already sent in /home/rsaczlopir/devcmsfoam.co.uk/wp-content/themes/kadence-child/functions.php on line 321
-[23-Jun-2025 19:45:58 UTC] PHP Warning:  Cannot modify header information - headers already sent in /home/rsaczlopir/devcmsfoam.co.uk/wp-content/themes/kadence-child/functions.php on line 321
-[23-Jun-2025 19:47:37 UTC] PHP Warning:  Cannot modify header information - headers already sent in /home/rsaczlopir/devcmsfoam.co.uk/wp-content/themes/kadence-child/functions.php on line 321
+[24-Jun-2025 08:55:58 UTC] PHP Warning:  Cannot modify header information - headers already sent in /home/rsaczlopir/devcmsfoam.co.uk/wp-content/themes/kadence-child/functions.php on line 322
+[24-Jun-2025 08:56:31 UTC] PHP Warning:  Cannot modify header information - headers already sent in /home/rsaczlopir/devcmsfoam.co.uk/wp-content/themes/kadence-child/functions.php on line 322
+[24-Jun-2025 08:57:59 UTC] PHP Warning:  Cannot modify header information - headers already sent in /home/rsaczlopir/devcmsfoam.co.uk/wp-content/themes/kadence-child/functions.php on line 322
+[24-Jun-2025 08:58:32 UTC] PHP Warning:  Cannot modify header information - headers already sent in /home/rsaczlopir/devcmsfoam.co.uk/wp-content/themes/kadence-child/functions.php on line 322
+[24-Jun-2025 08:59:01 UTC] PHP Warning:  Cannot modify header information - headers already sent in /home/rsaczlopir/devcmsfoam.co.uk/wp-content/themes/kadence-child/functions.php on line 322
+[24-Jun-2025 09:00:34 UTC] PHP Warning:  Cannot modify header information - headers already sent in /home/rsaczlopir/devcmsfoam.co.uk/wp-content/themes/kadence-child/functions.php on line 322
+[24-Jun-2025 09:01:54 UTC] PHP Warning:  Cannot modify header information - headers already sent in /home/rsaczlopir/devcmsfoam.co.uk/wp-content/themes/kadence-child/functions.php on line 322
+[24-Jun-2025 09:03:00 UTC] PHP Warning:  Cannot modify header information - headers already sent in /home/rsaczlopir/devcmsfoam.co.uk/wp-content/themes/kadence-child/functions.php on line 322
+[24-Jun-2025 09:03:27 UTC] PHP Warning:  Cannot modify header information - headers already sent in /home/rsaczlopir/devcmsfoam.co.uk/wp-content/themes/kadence-child/functions.php on line 322
+[24-Jun-2025 09:04:08 UTC] PHP Warning:  Cannot modify header information - headers already sent in /home/rsaczlopir/devcmsfoam.co.uk/wp-content/themes/kadence-child/functions.php on line 322
+[24-Jun-2025 09:05:05 UTC] PHP Warning:  Cannot modify header information - headers already sent in /home/rsaczlopir/devcmsfoam.co.uk/wp-content/themes/kadence-child/functions.php on line 322
+[24-Jun-2025 09:05:29 UTC] PHP Warning:  Cannot modify header information - headers already sent in /home/rsaczlopir/devcmsfoam.co.uk/wp-content/themes/kadence-child/functions.php on line 322
+[24-Jun-2025 09:05:52 UTC] PHP Warning:  Cannot modify header information - headers already sent in /home/rsaczlopir/devcmsfoam.co.uk/wp-content/themes/kadence-child/functions.php on line 322
+[24-Jun-2025 09:06:27 UTC] PHP Warning:  Cannot modify header information - headers already sent in /home/rsaczlopir/devcmsfoam.co.uk/wp-content/themes/kadence-child/functions.php on line 322
+[24-Jun-2025 09:07:40 UTC] PHP Warning:  Cannot modify header information - headers already sent in /home/rsaczlopir/devcmsfoam.co.uk/wp-content/themes/kadence-child/functions.php on line 322
+[24-Jun-2025 09:08:32 UTC] PHP Warning:  Cannot modify header information - headers already sent in /home/rsaczlopir/devcmsfoam.co.uk/wp-content/themes/kadence-child/functions.php on line 322
+[24-Jun-2025 09:08:35 UTC] PHP Warning:  Cannot modify header information - headers already sent in /home/rsaczlopir/devcmsfoam.co.uk/wp-content/themes/kadence-child/functions.php on line 322
+[24-Jun-2025 09:10:23 UTC] PHP Warning:  Cannot modify header information - headers already sent in /home/rsaczlopir/devcmsfoam.co.uk/wp-content/themes/kadence-child/functions.php on line 322
+[24-Jun-2025 09:11:49 UTC] PHP Warning:  Cannot modify header information - headers already sent in /home/rsaczlopir/devcmsfoam.co.uk/wp-content/themes/kadence-child/functions.php on line 322
+[24-Jun-2025 09:14:11 UTC] PHP Warning:  Cannot modify header information - headers already sent in /home/rsaczlopir/devcmsfoam.co.uk/wp-content/themes/kadence-child/functions.php on line 322
+[24-Jun-2025 09:16:26 UTC] PHP Warning:  Cannot modify header information - headers already sent in /home/rsaczlopir/devcmsfoam.co.uk/wp-content/themes/kadence-child/functions.php on line 322
+[24-Jun-2025 09:39:48 UTC] PHP Warning:  Cannot modify header information - headers already sent in /home/rsaczlopir/devcmsfoam.co.uk/wp-content/themes/kadence-child/functions.php on line 326

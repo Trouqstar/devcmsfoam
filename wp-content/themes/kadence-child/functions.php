@@ -311,6 +311,11 @@ function twc_enqueue_header_scripts() {
 }
 add_action('wp_enqueue_scripts', 'twc_enqueue_header_scripts');
 
+//Start of Favourites
+/**
+ * Wishlist functionality for WooCommerce
+ */
+
 /**
  * Wishlist functionality for WooCommerce
  */
@@ -395,19 +400,4 @@ add_action('wp_ajax_nopriv_twc_wishlist_toggle', function() {
     nocache_headers();
 }, 1);
 
-
-function enqueue_favourites_cleanup_script() {
-    if (is_page('favourites')) {
-        wp_enqueue_script(
-            'favourites-cleanup-js',
-            get_stylesheet_directory_uri() . '/js/favourites-cleanup.js',
-            array(),
-            '1.0',
-            true
-        );
-    }
-}
-add_action('wp_enqueue_scripts', 'enqueue_favourites_cleanup_script');
-
-
-// End Of Line
+//End of Line

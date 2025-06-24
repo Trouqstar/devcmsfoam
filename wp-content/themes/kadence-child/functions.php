@@ -377,7 +377,7 @@ function display_wishlist_products() {
         json_decode(stripslashes($_COOKIE['twc_wishlist']), true) : [];
 
     if (empty($wishlist)) {
-        echo '<p class="wishlist-empty">' . esc_html__('You haven’t saved any items yet.', 'your-textdomain') . '</p>';
+        get_template_part('template-parts/wishlist-product-empty');
         return;
     }
 

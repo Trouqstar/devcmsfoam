@@ -108,8 +108,13 @@ document.addEventListener('DOMContentLoaded', function() {
                 
                 // Show empty message if needed
                 if (!document.querySelector('.wishlist-product')) {
-                    document.getElementById('wishlist-items').innerHTML = 
-                        '<p class="wishlist-empty">You haven\'t saved any items yet.</p>';
+                    const template = document.getElementById('wishlist-empty-template');
+                    if (template) {
+                        const clone = template.content.cloneNode(true);
+                        const container = document.getElementById('wishlist-items');
+                        container.innerHTML = '';
+                        container.appendChild(clone);
+                    }
                 }
             }, 300);
         }

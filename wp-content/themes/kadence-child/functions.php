@@ -311,73 +311,12 @@ function twc_enqueue_header_scripts() {
 }
 add_action('wp_enqueue_scripts', 'twc_enqueue_header_scripts');
 
-//Start of Favourites
+// Start of Favourites
 /**
  * Wishlist functionality for WooCommerce
  */
 
-/**
- * Wishlist functionality for WooCommerce
- */
-
-// Register wishlist cookie/location
-function init_wishlist() {
-    if (!isset($_COOKIE['twc_wishlist'])) {
-        setcookie('twc_wishlist', json_encode([]), time() + (86400 * 30), "/");
-    }
-}
-add_action('init', 'init_wishlist');
-
-// Display wishlist products
-function display_wishlist_products() {
-    $wishlist = isset($_COOKIE['twc_wishlist']) ? 
-        json_decode(stripslashes($_COOKIE['twc_wishlist']), true) : 
-        [];
-
-    if (empty($wishlist)) {
-        echo '<p class="wishlist-empty">You haven\'t saved any items yet.</p>';
-        return;
-    }
-
-    $args = [
-        'post_type'      => 'product',
-        'post__in'       => array_map('intval', $wishlist),
-        'posts_per_page' => -1,
-        'orderby'        => 'post__in'
-    ];
-
-    $products = new WP_Query($args);
-
-    if ($products->have_posts()) {
-        echo '<div class="wishlist-products">';
-        while ($products->have_posts()) {
-            $products->the_post();
-            global $product;
-            
-            // Add remove button to each product
-            echo '<div class="wishlist-product" data-product-id="' . esc_attr($product->get_id()) . '">';
-            echo '<button class="remove-from-wishlist" aria-label="Remove from wishlist">×</button>';
-            wc_get_template_part('content', 'product');
-            echo '</div>';
-        }
-        echo '</div>';
-        wp_reset_postdata();
-    } else {
-        echo '<p class="wishlist-empty">No saved items found.</p>';
-    }
-}
-
-// Add wishlist button to product loops
-function add_wishlist_button() {
-    global $product;
-    echo '<button class="add-to-wishlist" data-product-id="' . esc_attr($product->get_id()) . '" aria-label="Add to wishlist">
-        <span class="heart-icon">♡</span>
-    </button>';
-}
-add_action('woocommerce_after_shop_loop_item', 'add_wishlist_button', 15);
-add_action('woocommerce_single_product_summary', 'add_wishlist_button', 35);
-
-// Enqueue wishlist scripts
+// Enqueue wishlist scripts and styles
 function enqueue_wishlist_scripts() {
     wp_enqueue_script(
         'wishlist-js',
@@ -399,7 +338,96 @@ function enqueue_wishlist_scripts() {
 }
 add_action('wp_enqueue_scripts', 'enqueue_wishlist_scripts');
 
-// Force no-cache for favourites page
+
+// Add wishlist button to product loops and single product pages
+function add_wishlist_button() {
+    global $product;
+
+    if (!$product || ! $product->get_id()) return;
+
+    echo get_wishlist_button_html($product->get_id());
+}
+add_action('woocommerce_after_shop_loop_item', 'add_wishlist_button', 15);
+add_action('woocommerce_single_product_summary', 'add_wishlist_button', 35);
+
+
+// Generate HTML for wishlist button
+function get_wishlist_button_html($product_id) {
+    ob_start();
+    ?>
+    <button class="add-to-wishlist" data-product-id="<?php echo esc_attr($product_id); ?>" aria-label="<?php esc_attr_e('Add to wishlist', 'your-textdomain'); ?>">
+        <span class="heart-icon">♡</span>
+    </button>
+    <?php
+    return ob_get_clean();
+}
+
+
+// Render individual product in wishlist view
+function render_wishlist_product_html($product) {
+    if (!$product || ! $product instanceof WC_Product) return;
+
+    get_template_part('template-parts/wishlist-product', null, ['product' => $product]);
+}
+
+
+// Display wishlist products on the "favourites" page
+function display_wishlist_products() {
+    $wishlist = isset($_COOKIE['twc_wishlist']) ?
+        json_decode(stripslashes($_COOKIE['twc_wishlist']), true) : [];
+
+    if (empty($wishlist)) {
+        echo '<p class="wishlist-empty">' . esc_html__('You haven’t saved any items yet.', 'your-textdomain') . '</p>';
+        return;
+    }
+
+    $args = array(
+        'post_type'      => 'product',
+        'post__in'       => array_map('intval', $wishlist),
+        'posts_per_page' => -1,
+        'orderby'        => 'post__in'
+    );
+
+    $products = new WP_Query($args);
+
+    if ($products->have_posts()) {
+        echo '<div class="wishlist-products" id="wishlist-items">';
+        while ($products->have_posts()) {
+            $products->the_post();
+            $product = wc_get_product(get_the_ID());
+            render_wishlist_product_html($product);
+        }
+        echo '</div>';
+        wp_reset_postdata();
+    } else {
+        echo '<p class="wishlist-empty">' . esc_html__('No saved items found.', 'your-textdomain') . '</p>';
+    }
+}
+
+
+// Handle wishlist toggle via AJAX
+add_action('wp_ajax_twc_wishlist_toggle', 'twc_handle_wishlist_toggle');
+add_action('wp_ajax_nopriv_twc_wishlist_toggle', 'twc_handle_wishlist_toggle');
+
+function twc_handle_wishlist_toggle() {
+    nocache_headers();
+
+    if (!isset($_POST['security']) || !wp_verify_nonce($_POST['security'], 'twc_wishlist_nonce')) {
+        wp_send_json_error(['message' => 'Security check failed']);
+    }
+
+    $product_id = isset($_POST['product_id']) ? intval($_POST['product_id']) : 0;
+
+    if (!$product_id || get_post_type($product_id) !== 'product') {
+        wp_send_json_error(['message' => 'Invalid product ID']);
+    }
+
+    // In a real-world app, you'd update a DB or user meta here.
+    wp_send_json_success(['message' => 'Wishlist updated']);
+}
+
+
+// Prevent caching on the favourites page
 add_action('template_redirect', function() {
     if (is_page('favourites')) {
         nocache_headers();
@@ -407,28 +435,7 @@ add_action('template_redirect', function() {
     }
 });
 
-// AJAX cache control
-
-add_action('wp_ajax_twc_wishlist_toggle', 'twc_handle_wishlist_toggle');
-add_action('wp_ajax_nopriv_twc_wishlist_toggle', 'twc_handle_wishlist_toggle');
-
-function twc_handle_wishlist_toggle() {
-    nocache_headers(); // optional but you're already using it
-
-    // Check nonce
-    if (!isset($_POST['security']) || !wp_verify_nonce($_POST['security'], 'twc_wishlist_nonce')) {
-        wp_send_json_error(['message' => 'Security check failed']);
-    }
-
-    // Validate product ID
-    $product_id = isset($_POST['product_id']) ? intval($_POST['product_id']) : 0;
-    if (!$product_id) {
-        wp_send_json_error(['message' => 'Invalid product ID']);
-    }
-
-    // This is where you'd normally update the DB or session — for now, we fake it
-    wp_send_json_success(['message' => 'Wishlist updated']);
-}
+//Deregister Comments
 
 
 //End of Line

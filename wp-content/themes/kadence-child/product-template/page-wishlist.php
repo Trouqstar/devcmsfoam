@@ -1,23 +1,22 @@
 <?php
 /**
- * Template Name: Wishlist
- * Description: Displays the user's saved wishlist items
+ * Template Name: Favourites
  */
 
-get_header(); ?>
+get_header();
+?>
 
-<div class="wishlist-page container">
-    <h1 class="page-title"><?php the_title(); ?></h1>
-    
-    <div id="wishlist-items" class="products-grid">
-        <?php
-        if (function_exists('display_wishlist_products')) {
-            display_wishlist_products();
-        } else {
-            echo '<p class="wishlist-empty">Wishlist functionality is currently unavailable.</p>';
-        }
-        ?>
-    </div>
-</div>
+<main id="primary" class="site-main wishlist-page">
 
-<?php get_footer(); ?>
+    <header class="wishlist-header">
+        <h1 class="page-title"><?php the_title(); ?></h1>
+    </header>
+
+    <section id="wishlist-items" class="products-grid">
+        <?php display_wishlist_products(); ?>
+    </section>
+
+</main>
+
+<?php
+get_footer();

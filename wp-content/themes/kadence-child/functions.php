@@ -391,13 +391,11 @@ function display_wishlist_products() {
     $products = new WP_Query($args);
 
     if ($products->have_posts()) {
-        echo '<div class="wishlist-products" id="wishlist-items">';
         while ($products->have_posts()) {
             $products->the_post();
             $product = wc_get_product(get_the_ID());
             render_wishlist_product_html($product);
         }
-        echo '</div>';
         wp_reset_postdata();
     } else {
         echo '<p class="wishlist-empty">' . esc_html__('No saved items found.', 'your-textdomain') . '</p>';

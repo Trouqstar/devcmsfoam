@@ -1,0 +1,7 @@
+[25-Jun-2025 10:28:49 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function display_wishlist_product() in /home/rsaczlopir/devcmsfoam.co.uk/wp-content/themes/kadence-child/product-template/page-wishlist.php:19
+Stack trace:
+#0 /home/rsaczlopir/devcmsfoam.co.uk/wp-includes/template-loader.php(106): include()
+#1 /home/rsaczlopir/devcmsfoam.co.uk/wp-blog-header.php(19): require_once('/home/rsaczlopi...')
+#2 /home/rsaczlopir/devcmsfoam.co.uk/index.php(17): require('/home/rsaczlopi...')
+#3 {main}
+  thrown in /home/rsaczlopir/devcmsfoam.co.uk/wp-content/themes/kadence-child/product-template/page-wishlist.php on line 19

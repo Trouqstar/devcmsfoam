@@ -20,22 +20,22 @@
     </div>
 
     <div class="wishlist-empty-benefits">
-        <div class="benefit-item">
+        <div class="benefit-item-delivery">
             <div class="benefit-icon">🚚</div>
             <p class="benefit-title"><?php esc_html_e('Free Standard Delivery', 'your-textdomain'); ?></p>
             <p class="benefit-desc"><?php esc_html_e('On orders over £60', 'your-textdomain'); ?></p>
         </div>
-        <div class="benefit-item">
+        <div class="benefit-item-gifts">
             <div class="benefit-icon">🎁</div>
             <p class="benefit-title"><?php esc_html_e('Premium Gift-Box Service', 'your-textdomain'); ?></p>
             <p class="benefit-desc"><?php esc_html_e('A chic finishing touch', 'your-textdomain'); ?></p>
         </div>
-        <div class="benefit-item">
+        <div class="benefit-item-vouchers">
             <div class="benefit-icon">🎀</div>
             <p class="benefit-title"><?php esc_html_e('Gift Cards & E-Gift Cards', 'your-textdomain'); ?></p>
             <p class="benefit-desc"><?php esc_html_e('Give the gift of choice', 'your-textdomain'); ?></p>
         </div>
-        <div class="benefit-item">
+        <div class="benefit-item-chat">
             <div class="benefit-icon">💬</div>
             <p class="benefit-title"><?php esc_html_e('Live Expert Product Advice', 'your-textdomain'); ?></p>
             <p class="benefit-desc"><?php esc_html_e('Available Monday–Sunday', 'your-textdomain'); ?></p>

@@ -356,7 +356,7 @@ function get_wishlist_button_html($product_id) {
     ob_start();
     ?>
     <button class="add-to-wishlist" data-product-id="<?php echo esc_attr($product_id); ?>" aria-label="<?php esc_attr_e('Add to wishlist', 'your-textdomain'); ?>">
-        <span class="heart-icon">♡</span>
+        <span class="heart-icon material-symbols-outlined">favorite</span>
     </button>
     <?php
     return ob_get_clean();

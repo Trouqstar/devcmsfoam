@@ -1,6 +1,6 @@
 <?php
 /**
- * Custom header for White Company style
+ * Custom header
  */
 namespace Kadence;
 

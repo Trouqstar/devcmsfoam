@@ -433,7 +433,21 @@ add_action('template_redirect', function() {
     }
 });
 
-//Deregister Comments
+//Add to cart
+
+function custom_enqueue_add_to_cart_script() {
+    if (is_shop() || is_product_category() || is_product()) {
+        wp_enqueue_script(
+            'custom-add-to-cart-js',
+            get_template_directory_uri() . '/js/custom-add-to-cart.js',
+            array('jquery'), // Dependency
+            '1.0',
+            true // Load in footer
+        );
+    }
+}
+add_action('wp_enqueue_scripts', 'custom_enqueue_add_to_cart_script');
+
 
 
 //End of Line

@@ -5,3 +5,26 @@ Stack trace:
 #2 /home/rsaczlopir/devcmsfoam.co.uk/index.php(17): require('/home/rsaczlopi...')
 #3 {main}
   thrown in /home/rsaczlopir/devcmsfoam.co.uk/wp-content/themes/kadence-child/product-template/page-wishlist.php on line 19
+[27-Jun-2025 14:58:39 UTC] PHP Warning:  Undefined variable $product in /home/rsaczlopir/devcmsfoam.co.uk/wp-content/themes/kadence-child/woocommerce/loop/add-to-cart.php on line 2
+[27-Jun-2025 14:58:39 UTC] PHP Fatal error:  Uncaught Error: Call to a member function is_type() on null in /home/rsaczlopir/devcmsfoam.co.uk/wp-content/themes/kadence-child/woocommerce/loop/add-to-cart.php:2
+Stack trace:
+#0 /home/rsaczlopir/devcmsfoam.co.uk/wp-content/plugins/woocommerce/includes/wc-core-functions.php(346): include()
+#1 /home/rsaczlopir/devcmsfoam.co.uk/wp-content/plugins/woocommerce/includes/wc-template-functions.php(1444): wc_get_template()
+#2 /home/rsaczlopir/devcmsfoam.co.uk/wp-includes/class-wp-hook.php(324): woocommerce_template_loop_add_to_cart()
+#3 /home/rsaczlopir/devcmsfoam.co.uk/wp-includes/class-wp-hook.php(348): WP_Hook->apply_filters()
+#4 /home/rsaczlopir/devcmsfoam.co.uk/wp-includes/plugin.php(517): WP_Hook->do_action()
+#5 /home/rsaczlopir/devcmsfoam.co.uk/wp-content/plugins/woocommerce/templates/content-product.php(65): do_action()
+#6 /home/rsaczlopir/devcmsfoam.co.uk/wp-includes/template.php(812): require('/home/rsaczlopi...')
+#7 /home/rsaczlopir/devcmsfoam.co.uk/wp-content/plugins/woocommerce/includes/wc-core-functions.php(285): load_template()
+#8 /home/rsaczlopir/devcmsfoam.co.uk/wp-content/themes/kadence-child/template-parts/wishlist-product.php(14): wc_get_template_part()
+#9 /home/rsaczlopir/devcmsfoam.co.uk/wp-includes/template.php(812): require('/home/rsaczlopi...')
+#10 /home/rsaczlopir/devcmsfoam.co.uk/wp-includes/template.php(745): load_template()
+#11 /home/rsaczlopir/devcmsfoam.co.uk/wp-includes/general-template.php(206): locate_template()
+#12 /home/rsaczlopir/devcmsfoam.co.uk/wp-content/themes/kadence-child/functions.php(370): get_template_part()
+#13 /home/rsaczlopir/devcmsfoam.co.uk/wp-content/themes/kadence-child/functions.php(397): render_wishlist_product_html()
+#14 /home/rsaczlopir/devcmsfoam.co.uk/wp-content/themes/kadence-child/product-template/page-wishlist.php(33): display_wishlist_products()
+#15 /home/rsaczlopir/devcmsfoam.co.uk/wp-includes/template-loader.php(106): include('/home/rsaczlopi...')
+#16 /home/rsaczlopir/devcmsfoam.co.uk/wp-blog-header.php(19): require_once('/home/rsaczlopi...')
+#17 /home/rsaczlopir/devcmsfoam.co.uk/index.php(17): require('/home/rsaczlopi...')
+#18 {main}
+  thrown in /home/rsaczlopir/devcmsfoam.co.uk/wp-content/themes/kadence-child/woocommerce/loop/add-to-cart.php on line 2

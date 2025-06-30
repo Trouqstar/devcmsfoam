@@ -2,11 +2,8 @@
 /**
  * Loop Add to Cart
  *
- * This template can be overridden by copying it to yourtheme/woocommerce/loop/add-to-cart.php.
- *
- * @see     https://woocommerce.com/document/template-structure/
- * @package WooCommerce\Templates
- * @version 9.2.0
+ * Template overridden for AJAX variation add-to-cart functionality.
+ * Save in yourtheme/woocommerce/loop/add-to-cart.php
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -30,7 +27,6 @@ $aria_describedby = isset( $args['aria-describedby_text'] )
 	? sprintf( 'aria-describedby="woocommerce_loop_add_to_cart_link_describedby_%s"', esc_attr( $product->get_id() ) )
 	: '';
 
-// Build button class for simple products
 $button_class = isset( $args['class'] ) ? $args['class'] : 'button add_to_cart_button';
 if ( $in_cart ) {
 	$button_class .= ' added';
@@ -39,25 +35,19 @@ if ( $in_cart ) {
 
 <div class="action-button-wrap">
 	<?php if ( $product->is_type( 'variable' ) ) : ?>
-		<!-- VARIABLE PRODUCT: Initial cart button -->
-		<button type="button" class="show-variations-button button">
-			<span class="cart-icon material-symbols-outlined">shopping_bag</span>
-		</button>
-		
-		<!-- VARIABLE PRODUCT: Hidden attribute selection form -->
-		<form class="variations_form cart" method="post" enctype='multipart/form-data'
-			  action="<?php echo esc_url( $product->get_permalink() ); ?>"
-			  data-product_id="<?php echo absint( $product->get_id() ); ?>"
-			  data-product_variations="<?php echo esc_attr( wp_json_encode( $product->get_available_variations() ) ); ?>"
-			  style="display: none;">
+		<?php
+		$attributes = $product->get_variation_attributes();
+		$available_variations = $product->get_available_variations();
+		?>
 
-			<?php
-			$attributes = $product->get_variation_attributes();
-			foreach ( $attributes as $attribute_name => $options ) :
-			?>
+		<div class="custom-variation-wrapper"
+			 data-product_id="<?php echo esc_attr( $product->get_id() ); ?>"
+			 data-product_variations='<?php echo wp_json_encode( $available_variations ); ?>'>
+
+			<?php foreach ( $attributes as $attribute_name => $options ) : ?>
 				<div class="variation-select">
-					<select name="attribute_<?php echo esc_attr( sanitize_title( $attribute_name ) ); ?>">
-						<option value=""><?php echo wc_attribute_label( $attribute_name ); ?></option>
+					<select class="custom-attribute-select" data-attribute_name="attribute_<?php echo esc_attr( sanitize_title( $attribute_name ) ); ?>">
+						<option value=""><?php echo esc_html( wc_attribute_label( $attribute_name ) ); ?></option>
 						<?php foreach ( $options as $option ) : ?>
 							<option value="<?php echo esc_attr( $option ); ?>"><?php echo esc_html( $option ); ?></option>
 						<?php endforeach; ?>
@@ -65,14 +55,20 @@ if ( $in_cart ) {
 				</div>
 			<?php endforeach; ?>
 
-			<input type="hidden" name="add-to-cart" value="<?php echo esc_attr( $product->get_id() ); ?>" />
-			<button type="submit" class="single_add_to_cart_button button alt">
+			<button
+				type="button"
+				class="custom-add-to-cart-btn button"
+				data-product-id="<?php echo esc_attr( $product->get_id() ); ?>"
+				data-quantity="1"
+				data-variation-id=""
+				disabled
+			>
 				<?php echo esc_html( $product->single_add_to_cart_text() ); ?>
 			</button>
-		</form>
+		</div>
 
 	<?php else : ?>
-		<!-- SIMPLE PRODUCT: Direct Add to Cart -->
+		<!-- Simple Product Add to Cart -->
 		<?php
 		echo apply_filters(
 			'woocommerce_loop_add_to_cart_link',
@@ -91,7 +87,6 @@ if ( $in_cart ) {
 		?>
 	<?php endif; ?>
 
-	<!-- View Cart Button -->
 	<a href="<?php echo esc_url( wc_get_cart_url() ); ?>" class="added_to_cart wc-forward">View cart</a>
 </div>
 
@@ -103,17 +98,63 @@ if ( $in_cart ) {
 
 <script>
 jQuery(document).ready(function($) {
-	$('.show-variations-button').on('click', function(e) {
-		e.preventDefault();
-		var $form = $(this).next('.variations_form');
-		$(this).hide();
-		$form.show();
-	});
-	
-	// Optionally, add a way to cancel the variation selection
-	$('.variations_form').on('click', '.cancel-variations', function(e) {
-		e.preventDefault();
-		$(this).closest('.variations_form').hide().prev('.show-variations-button').show();
+	$('.custom-variation-wrapper').each(function() {
+		const $wrapper = $(this);
+		const $selects = $wrapper.find('.custom-attribute-select');
+		const $button = $wrapper.find('.custom-add-to-cart-btn');
+		const variations = $wrapper.data('product_variations');
+
+		function findMatchingVariation() {
+			const selected = {};
+			$selects.each(function() {
+				const attr = $(this).data('attribute_name');
+				const val = $(this).val();
+				if (val) selected[attr] = val;
+			});
+
+			const match = variations.find(v => {
+				return Object.keys(selected).every(attr => {
+					return v.attributes[attr] === selected[attr];
+				});
+			});
+
+			if (match) {
+				$button.prop('disabled', false).data('variation-id', match.variation_id);
+			} else {
+				$button.prop('disabled', true).data('variation-id', '');
+			}
+		}
+
+		$selects.on('change', findMatchingVariation);
+
+		$button.on('click', function(e) {
+			e.preventDefault();
+
+			const product_id = $(this).data('product-id');
+			const variation_id = $(this).data('variation-id');
+			const quantity = $(this).data('quantity');
+
+			if (!variation_id) {
+				alert('⚠️ Please select valid options before adding to cart.');
+				return;
+			}
+
+			$.ajax({
+				url: '<?php echo plugin_dir_url(__FILE__); ?>../../../ajax-variation-add-to-cart/ajax-handler.php',
+				method: 'POST',
+				data: {
+					pid: product_id,
+					vid: variation_id,
+					qty: quantity
+				},
+				success: function() {
+					$(document.body).trigger('added_to_cart');
+				},
+				error: function(err) {
+					console.error('❌ AJAX Error', err);
+				}
+			});
+		});
 	});
 });
 </script>

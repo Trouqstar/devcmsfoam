@@ -1,0 +1,5 @@
+[29-Jun-2025 14:53:06 UTC] PHP Warning:  Undefined global variable $wp_version in /home/rsaczlopir/devcmsfoam.co.uk/wp-content/themes/kadence/functions.php on line 17
+[29-Jun-2025 14:53:06 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function get_template_directory() in /home/rsaczlopir/devcmsfoam.co.uk/wp-content/themes/kadence/functions.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/rsaczlopir/devcmsfoam.co.uk/wp-content/themes/kadence/functions.php on line 18

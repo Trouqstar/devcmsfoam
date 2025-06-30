@@ -251,41 +251,35 @@
 
 /* Product Card Action Buttons */
 
-.action-button-wrap {
-    position: relative
+#wishlist-items .wishlist-product-content {
+    position: relative;
 }
 
-.action-button-wrap .add_to_cart_button.added ~ .added_to_cart {
+/* Ensure image is block and fills container */
+#wishlist-items .wishlist-product-content img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+/* View cart button positioned at bottom-left of image */
+#wishlist-items .wishlist-product-content .added_to_cart {
     position: absolute;
-    padding: 8px 12px;
+    bottom: 160px;
+    left: 5px;
+    padding: 6px 10px;
+    font-size: 14px;
     background: none;
     border: 1px solid #ccc;
-    text-decoration: none;
     color: #333;
+    text-decoration: none;
     z-index: 2;
-    transform: translate(-215px, -160px);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    height: 100%;
-    transition: all 0.3s ease;
+    display: none; /* hidden by default */
 }
 
-#wishlist-items .product-details .product-action-wrap {
-  flex-shrink: 0; /* Don't shrink or grow */
-  margin-top: auto; /* Ensures it sits at the bottom */
-}
-
-#wishlist-items .product-details .woocommerce-loop-product__title {
-  flex-grow: 1;
-}
-
-#wishlist-items .product-details .product-action-wrap {
-  margin-top: auto;
-}
-
-.action-button-wrap .added_to_cart {
-    display: none;
+/* Show only when Add to Cart has the "added" class */
+#wishlist-items .wishlist-product-content .add_to_cart_button.added ~ .added_to_cart {
+    display: inline-block;
 }
 
 
@@ -317,4 +311,10 @@
   font-weight: bold;
 }
 
-/* testimonials */
+/* Form JS Variable Products */
+
+.variation-select {
+    display: none;
+    flex-direction: column;
+    margin-bottom: 10px;
+}

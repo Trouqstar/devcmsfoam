@@ -450,16 +450,6 @@ add_action('wp_enqueue_scripts', 'custom_enqueue_add_to_cart_script');
 
 //Enque Wishlist Form JS
 
-function wishlist_custom_scripts() {
-    wp_enqueue_script(
-        'wishlist-variable-cart',
-        get_template_directory_uri() . '/js/wishlist-variable-add-to-cart.js',
-        array('jquery', 'wc-add-to-cart-variation'),
-        '1.0',
-        true
-    );
-}
-add_action('wp_enqueue_scripts', 'wishlist_custom_scripts');
 
 
 //End of Line

@@ -39,11 +39,17 @@ if ( $in_cart ) {
 
 <div class="action-button-wrap">
 	<?php if ( $product->is_type( 'variable' ) ) : ?>
-		<!-- VARIABLE PRODUCT: Show attribute selection form -->
+		<!-- VARIABLE PRODUCT: Initial cart button -->
+		<button type="button" class="show-variations-button button">
+			<span class="cart-icon material-symbols-outlined">shopping_bag</span>
+		</button>
+		
+		<!-- VARIABLE PRODUCT: Hidden attribute selection form -->
 		<form class="variations_form cart" method="post" enctype='multipart/form-data'
 			  action="<?php echo esc_url( $product->get_permalink() ); ?>"
 			  data-product_id="<?php echo absint( $product->get_id() ); ?>"
-			  data-product_variations="<?php echo esc_attr( wp_json_encode( $product->get_available_variations() ) ); ?>">
+			  data-product_variations="<?php echo esc_attr( wp_json_encode( $product->get_available_variations() ) ); ?>"
+			  style="display: none;">
 
 			<?php
 			$attributes = $product->get_variation_attributes();
@@ -61,7 +67,7 @@ if ( $in_cart ) {
 
 			<input type="hidden" name="add-to-cart" value="<?php echo esc_attr( $product->get_id() ); ?>" />
 			<button type="submit" class="single_add_to_cart_button button alt">
-				<span class="cart-icon material-symbols-outlined">shopping_bag</span>
+				<?php echo esc_html( $product->single_add_to_cart_text() ); ?>
 			</button>
 		</form>
 
@@ -94,3 +100,20 @@ if ( $in_cart ) {
 		<?php echo esc_html( $args['aria-describedby_text'] ); ?>
 	</span>
 <?php endif; ?>
+
+<script>
+jQuery(document).ready(function($) {
+	$('.show-variations-button').on('click', function(e) {
+		e.preventDefault();
+		var $form = $(this).next('.variations_form');
+		$(this).hide();
+		$form.show();
+	});
+	
+	// Optionally, add a way to cancel the variation selection
+	$('.variations_form').on('click', '.cancel-variations', function(e) {
+		e.preventDefault();
+		$(this).closest('.variations_form').hide().prev('.show-variations-button').show();
+	});
+});
+</script>

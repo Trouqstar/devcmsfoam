@@ -323,6 +323,25 @@
     margin-bottom: 10px;
 }
 
+.custom-add-to-cart-btn.button:focus {
+    background: none;
+    box-shadow: none;
+    transition: none;
+    border: 1px solid #d5d5d5;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.custom-add-to-cart-btn.button:hover {
+    background: none;
+    box-shadow: none;
+    transition: none;
+    border: 1px solid #d5d5d5;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+
 .custom-attribute-select {
     background: none;
     box-shadow: none;

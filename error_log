@@ -51,3 +51,20 @@ Stack trace:
 #17 /home/rsaczlopir/devcmsfoam.co.uk/index.php(17): require('/home/rsaczlopi...')
 #18 {main}
   thrown in /home/rsaczlopir/devcmsfoam.co.uk/wp-content/themes/kadence-child/woocommerce/loop/add-to-cart.php on line 1
+[01-Jul-2025 11:57:28 UTC] PHP Warning:  Undefined variable $product in /home/rsaczlopir/devcmsfoam.co.uk/wp-content/themes/kadence-child/woocommerce/content-product.php on line 1
+[01-Jul-2025 11:57:28 UTC] PHP Fatal error:  Uncaught Error: Call to a member function is_type() on null in /home/rsaczlopir/devcmsfoam.co.uk/wp-content/themes/kadence-child/woocommerce/content-product.php:1
+Stack trace:
+#0 /home/rsaczlopir/devcmsfoam.co.uk/wp-includes/template.php(812): require()
+#1 /home/rsaczlopir/devcmsfoam.co.uk/wp-content/plugins/woocommerce/includes/wc-core-functions.php(285): load_template()
+#2 /home/rsaczlopir/devcmsfoam.co.uk/wp-content/themes/kadence-child/template-parts/wishlist-product.php(14): wc_get_template_part()
+#3 /home/rsaczlopir/devcmsfoam.co.uk/wp-includes/template.php(812): require('/home/rsaczlopi...')
+#4 /home/rsaczlopir/devcmsfoam.co.uk/wp-includes/template.php(745): load_template()
+#5 /home/rsaczlopir/devcmsfoam.co.uk/wp-includes/general-template.php(206): locate_template()
+#6 /home/rsaczlopir/devcmsfoam.co.uk/wp-content/themes/kadence-child/functions.php(370): get_template_part()
+#7 /home/rsaczlopir/devcmsfoam.co.uk/wp-content/themes/kadence-child/functions.php(397): render_wishlist_product_html()
+#8 /home/rsaczlopir/devcmsfoam.co.uk/wp-content/themes/kadence-child/product-template/page-wishlist.php(33): display_wishlist_products()
+#9 /home/rsaczlopir/devcmsfoam.co.uk/wp-includes/template-loader.php(106): include('/home/rsaczlopi...')
+#10 /home/rsaczlopir/devcmsfoam.co.uk/wp-blog-header.php(19): require_once('/home/rsaczlopi...')
+#11 /home/rsaczlopir/devcmsfoam.co.uk/index.php(17): require('/home/rsaczlopi...')
+#12 {main}
+  thrown in /home/rsaczlopir/devcmsfoam.co.uk/wp-content/themes/kadence-child/woocommerce/content-product.php on line 1

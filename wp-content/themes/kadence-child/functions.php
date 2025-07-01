@@ -451,5 +451,4 @@ add_action('wp_enqueue_scripts', 'custom_enqueue_add_to_cart_script');
 //Enque Wishlist Form JS
 
 
-
 //End of Line

@@ -140,19 +140,14 @@ jQuery(document).ready(function($) {
 			}
 
 			$.ajax({
-				url: '<?php echo plugin_dir_url(__FILE__); ?>../../../ajax-variation-add-to-cart/ajax-handler.php',
+				url: custom_ajax_cart.ajax_url,
 				method: 'POST',
 				data: {
+					action: 'custom_ajax_add_to_cart',
 					pid: product_id,
 					vid: variation_id,
 					qty: quantity
 				},
-				success: function() {
-					$(document.body).trigger('added_to_cart');
-				},
-				error: function(err) {
-					console.error('❌ AJAX Error', err);
-				}
 			});
 		});
 	});

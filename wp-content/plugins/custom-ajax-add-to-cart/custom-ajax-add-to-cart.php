@@ -41,11 +41,16 @@ function custom_ajax_add_to_cart_handler() {
     }
 
     if ($result) {
-        WC_AJAX::get_refreshed_fragments();
+        // ✅ Correctly wrap WooCommerce fragments and cart hash
+        wp_send_json_success([
+            'fragments' => WC_AJAX::get_refreshed_fragments(),
+            'cart_hash' => WC()->cart->get_cart_hash(),
+        ]);
     } else {
         wp_send_json_error('Failed to add product to cart.');
     }
 
     wp_die();
 }
+
 ?>

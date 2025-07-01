@@ -313,3 +313,30 @@
 
 /* Form JS Variable Products */
 
+
+.custom-add-to-cart-btn.button {
+    background: none;
+    box-shadow: none;
+    transition: none;
+    border: 1px solid #d5d5d5;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.custom-attribute-select {
+    background: none;
+    box-shadow: none;
+    transition: none;
+    border: 1px solid #d5d5d5;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.custom-attribute-select:focus {
+    background: none;
+    box-shadow: none;
+    transition: none;
+    border: 1px solid #d5d5d5;
+    padding: 10px;
+    margin-bottom: 10px;
+}

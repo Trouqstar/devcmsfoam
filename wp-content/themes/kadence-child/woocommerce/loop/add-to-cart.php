@@ -63,7 +63,7 @@ if ( $in_cart ) {
 				data-variation-id=""
 				disabled
 			>
-				<?php echo esc_html( $product->single_add_to_cart_text() ); ?>
+				<?php echo '<span class="cart-icon material-symbols-outlined">shopping_bag</span>'; ?>
 			</button>
 		</div>
 

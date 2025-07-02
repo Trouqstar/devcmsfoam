@@ -81,14 +81,17 @@ if ( $in_cart ) {
 
 <script>
 jQuery(document).ready(function($) {
-  // Hide all variation wrappers on load
+  // Hide all variation wrappers initially
   $('.custom-variation-wrapper').hide();
 
-  // Toggle visibility when the build_circle icon is clicked
-  $('.custom-overlay-icon').on('click', function() {
-    const productId = $(this).closest('li.product').find('.custom-variation-wrapper').data('product_id');
+  // ✅ Always show matching variation dropdown on icon click
+  $(document).on('click', '.custom-overlay-icon', function(e) {
+    e.preventDefault();
+    const productId = $(this).data('product-id');
     const $wrapper = $('.custom-variation-wrapper[data-product_id="' + productId + '"]');
-    $wrapper.toggle(); // Toggle show/hide
+
+    // Force-show the dropdown (no toggle for testing)
+    $wrapper.show();
   });
 
   $('.custom-variation-wrapper').each(function() {
@@ -106,11 +109,9 @@ jQuery(document).ready(function($) {
         if (val) selected[attr] = val;
       });
 
-      const match = variations.find(v => {
-        return Object.keys(selected).every(attr => {
-          return v.attributes[attr] === selected[attr];
-        });
-      });
+      const match = variations.find(v =>
+        Object.keys(selected).every(attr => v.attributes[attr] === selected[attr])
+      );
 
       if (match) {
         $button.prop('disabled', false).data('variation-id', match.variation_id);
@@ -123,7 +124,6 @@ jQuery(document).ready(function($) {
 
     $button.on('click', function(e) {
       e.preventDefault();
-
       const variation_id = $(this).data('variation-id');
       const quantity = $(this).data('quantity');
 

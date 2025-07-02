@@ -81,19 +81,22 @@ if ( $in_cart ) {
 
 <script>
 jQuery(document).ready(function($) {
-  // Hide all variation wrappers initially
   $('.custom-variation-wrapper').hide();
 
-  // ✅ Always show matching variation dropdown on icon click
   $(document).on('click', '.custom-overlay-icon', function(e) {
     e.preventDefault();
-	e.stopPropagation();
+    e.stopPropagation();
+
     const productId = $(this).data('product-id');
     const $wrapper = $('.custom-variation-wrapper[data-product_id="' + productId + '"]');
 
-    // Force-show the dropdown (no toggle for testing)
-    $wrapper.show();
+    if ($wrapper.css('display') === 'none') {
+      $wrapper.stop(true, true).slideDown();
+    } else {
+      $wrapper.stop(true, true).slideUp();
+    }
   });
+
 
   $('.custom-variation-wrapper').each(function() {
     const $wrapper = $(this);

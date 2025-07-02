@@ -87,6 +87,7 @@ jQuery(document).ready(function($) {
   // ✅ Always show matching variation dropdown on icon click
   $(document).on('click', '.custom-overlay-icon', function(e) {
     e.preventDefault();
+	e.stopPropagation();
     const productId = $(this).data('product-id');
     const $wrapper = $('.custom-variation-wrapper[data-product_id="' + productId + '"]');
 

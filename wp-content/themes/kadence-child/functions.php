@@ -450,5 +450,13 @@ add_action('wp_enqueue_scripts', 'custom_enqueue_add_to_cart_script');
 
 //Enque Wishlist Form JS
 
+//Remove Product Action Wrapper
+
+add_action( 'after_setup_theme', function () {
+	remove_action( 'woocommerce_after_shop_loop_item', 'woocommerce_template_loop_add_to_cart', 10 );
+}, 20 );
+
+
+//End of Remove Product Action Wrapper
 
 //End of Line

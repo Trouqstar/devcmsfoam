@@ -67,7 +67,7 @@ if ( $in_cart ) {
 		?>
 	<?php endif; ?>
 
-	<a href="<?php echo esc_url( wc_get_cart_url() ); ?>" class="added_to_cart wc-forward" style="display: none;">View cart</a>
+	<a href="<?php echo esc_url( wc_get_cart_url() ); ?>" class="added_to_cart wc-forward">View cart</a>
 
 	<?php echo get_wishlist_button_html( $product->get_id() ); ?>
 </div>

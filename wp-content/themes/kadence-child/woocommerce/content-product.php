@@ -30,6 +30,13 @@ if ( ! is_a( $product, WC_Product::class ) || ! $product->is_visible() ) {
 		$attributes = $product->get_variation_attributes();
 		$available_variations = $product->get_available_variations();
 		?>
+
+		<!-- ✅ NEW: Top-right floating icon -->
+		<div class="custom-overlay-icon" data-product-id="<?php echo esc_attr( $product->get_id() ); ?>">
+  			<span class="material-symbols-outlined">build_circle</span>
+		</div>
+
+
 		<!-- ✅ Variation dropdowns now OUTSIDE the button wrap -->
 		<div class="custom-variation-wrapper"
 		     data-product_id="<?php echo esc_attr( $product->get_id() ); ?>"
@@ -47,10 +54,8 @@ if ( ! is_a( $product, WC_Product::class ) || ! $product->is_visible() ) {
 			<?php endforeach; ?>
 		</div>
 
-		<!-- ✅ NEW: Top-right floating icon -->
-		<div class="custom-overlay-icon" data-product-id="<?php echo esc_attr( $product->get_id() ); ?>">
-  			<span class="material-symbols-outlined">build_circle</span>
-		</div>
+
+
 	<?php endif; ?>
 
 	<?php

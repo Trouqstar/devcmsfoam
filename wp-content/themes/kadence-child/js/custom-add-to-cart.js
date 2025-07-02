@@ -1,22 +1,20 @@
 jQuery(function($) {
-    $(document.body).on('added_to_cart', function(event, fragments, cart_hash, $button) {
-        // Find the wrapper based on the button's position
-        var $wrapper = $button.closest('.action-button-wrap');
-        $button.hide();
-        $wrapper.find('.added_to_cart').fadeIn();
-        
-        // Update the button class if needed
-        $button.addClass('added');
+  $(document.body).on('added_to_cart', function(event, fragments, cart_hash, $button) {
+    var $wrapper = $button.closest('.action-button-wrap');
+    $button.hide();
+    $wrapper.find('.added_to_cart').fadeIn();
+    $button.addClass('added');
+  });
+
+  $(document).ready(function() {
+    $('.action-button-wrap').each(function() {
+      var $wrap = $(this);
+      var $btn = $wrap.find('.custom-add-to-cart-btn, .add_to_cart_button');
+      
+      if ($btn.hasClass('added')) {
+        $btn.hide();
+        $wrap.find('.added_to_cart').show();
+      }
     });
-    
-    // You might also want to add this to handle initial page load for items already in cart
-    $(document).ready(function() {
-        $('.action-button-wrap').each(function() {
-            var $wrap = $(this);
-            if ($wrap.find('.add_to_cart_button').hasClass('added')) {
-                $wrap.find('.add_to_cart_button').hide();
-                $wrap.find('.added_to_cart').show();
-            }
-        });
-    });
+  });
 });

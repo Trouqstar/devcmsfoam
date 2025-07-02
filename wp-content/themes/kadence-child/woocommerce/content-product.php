@@ -2,14 +2,6 @@
 /**
  * The template for displaying product content within loops
  *
- * This template can be overridden by copying it to yourtheme/woocommerce/content-product.php.
- *
- * HOWEVER, on occasion WooCommerce will need to update template files and you
- * (the theme developer) will need to copy the new files to your theme to
- * maintain compatibility. We try to do this as little as possible, but it does
- * happen. When this occurs the version of the template file will be bumped and
- * the readme will list any important changes.
- *
  * @see     https://woocommerce.com/document/template-structure/
  * @package WooCommerce\Templates
  * @version 9.4.0
@@ -19,50 +11,55 @@ defined( 'ABSPATH' ) || exit;
 
 global $product;
 
-// Check if the product is a valid WooCommerce product and ensure its visibility before proceeding.
 if ( ! is_a( $product, WC_Product::class ) || ! $product->is_visible() ) {
 	return;
 }
 ?>
+
 <li <?php wc_product_class( '', $product ); ?>>
+
 	<?php
-	/**
-	 * Hook: woocommerce_before_shop_loop_item.
-	 *
-	 * @hooked woocommerce_template_loop_product_link_open - 10
-	 */
+	// Open the product link wrapper
 	do_action( 'woocommerce_before_shop_loop_item' );
 
-	/**
-	 * Hook: woocommerce_before_shop_loop_item_title.
-	 *
-	 * @hooked woocommerce_show_product_loop_sale_flash - 10
-	 * @hooked woocommerce_template_loop_product_thumbnail - 10
-	 */
+	// Output the product image / sale badge
 	do_action( 'woocommerce_before_shop_loop_item_title' );
+	?>
 
-	/**
-	 * Hook: woocommerce_shop_loop_item_title.
-	 *
-	 * @hooked woocommerce_template_loop_product_title - 10
-	 */
+	<?php if ( $product->is_type( 'variable' ) ) :
+		$attributes = $product->get_variation_attributes();
+		$available_variations = $product->get_available_variations();
+		?>
+		<!-- ✅ Variation dropdowns now OUTSIDE the button wrap -->
+		<div class="custom-variation-wrapper"
+		     data-product_id="<?php echo esc_attr( $product->get_id() ); ?>"
+		     data-product_variations='<?php echo wp_json_encode( $available_variations ); ?>'>
+			<?php foreach ( $attributes as $attribute_name => $options ) : ?>
+				<div class="variation-select">
+					<select class="custom-attribute-select"
+					        data-attribute_name="attribute_<?php echo esc_attr( sanitize_title( $attribute_name ) ); ?>">
+						<option value=""><?php echo esc_html( wc_attribute_label( $attribute_name ) ); ?></option>
+						<?php foreach ( $options as $option ) : ?>
+							<option value="<?php echo esc_attr( $option ); ?>"><?php echo esc_html( $option ); ?></option>
+						<?php endforeach; ?>
+					</select>
+				</div>
+			<?php endforeach; ?>
+		</div>
+	<?php endif; ?>
+
+	<?php
+	// Product title
 	do_action( 'woocommerce_shop_loop_item_title' );
 
-	/**
-	 * Hook: woocommerce_after_shop_loop_item_title.
-	 *
-	 * @hooked woocommerce_template_loop_rating - 5
-	 * @hooked woocommerce_template_loop_price - 10
-	 */
+	// Rating and price
 	do_action( 'woocommerce_after_shop_loop_item_title' );
 
-	/**
-	 * Hook: woocommerce_after_shop_loop_item.
-	 *
-	 * @hooked woocommerce_template_loop_product_link_close - 5
-	 */
-	// Manually handle cart template to avoid Kadence wrapper
+	// Close product link
 	do_action( 'woocommerce_template_loop_product_link_close' );
-	wc_get_template_part( 'loop/add-to-cart' ); // <- direct include
-?>
+
+	// Directly include the custom add-to-cart.php template
+	wc_get_template_part( 'loop/add-to-cart' );
+	?>
+
 </li>

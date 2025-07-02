@@ -33,30 +33,6 @@ if ( $in_cart ) {
 }
 ?>
 
-<?php if ( $product->is_type( 'variable' ) ) : ?>
-	<?php
-	$attributes = $product->get_variation_attributes();
-	$available_variations = $product->get_available_variations();
-	?>
-
-	<!-- ✅ Variation dropdowns now OUTSIDE the button wrap -->
-	<div class="custom-variation-wrapper"
-	     data-product_id="<?php echo esc_attr( $product->get_id() ); ?>"
-	     data-product_variations='<?php echo wp_json_encode( $available_variations ); ?>'>
-
-		<?php foreach ( $attributes as $attribute_name => $options ) : ?>
-			<div class="variation-select">
-				<select class="custom-attribute-select"
-				        data-attribute_name="attribute_<?php echo esc_attr( sanitize_title( $attribute_name ) ); ?>">
-					<option value=""><?php echo esc_html( wc_attribute_label( $attribute_name ) ); ?></option>
-					<?php foreach ( $options as $option ) : ?>
-						<option value="<?php echo esc_attr( $option ); ?>"><?php echo esc_html( $option ); ?></option>
-					<?php endforeach; ?>
-				</select>
-			</div>
-		<?php endforeach; ?>
-	</div>
-<?php endif; ?>
 
 <!-- ✅ Button & wishlist wrap -->
 <div class="action-button-wrap">

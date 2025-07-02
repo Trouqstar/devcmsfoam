@@ -81,6 +81,16 @@ if ( $in_cart ) {
 
 <script>
 jQuery(document).ready(function($) {
+  // Hide all variation wrappers on load
+  $('.custom-variation-wrapper').hide();
+
+  // Toggle visibility when the build_circle icon is clicked
+  $('.custom-overlay-icon').on('click', function() {
+    const productId = $(this).closest('li.product').find('.custom-variation-wrapper').data('product_id');
+    const $wrapper = $('.custom-variation-wrapper[data-product_id="' + productId + '"]');
+    $wrapper.toggle(); // Toggle show/hide
+  });
+
   $('.custom-variation-wrapper').each(function() {
     const $wrapper = $(this);
     const $selects = $wrapper.find('.custom-attribute-select');

@@ -46,6 +46,11 @@ if ( ! is_a( $product, WC_Product::class ) || ! $product->is_visible() ) {
 				</div>
 			<?php endforeach; ?>
 		</div>
+
+		<!-- ✅ NEW: Top-right floating icon -->
+		<div class="custom-overlay-icon" data-product-id="<?php echo esc_attr( $product->get_id() ); ?>">
+  			<span class="material-symbols-outlined">build_circle</span>
+		</div>
 	<?php endif; ?>
 
 	<?php

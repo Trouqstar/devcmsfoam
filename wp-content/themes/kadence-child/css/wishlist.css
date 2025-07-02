@@ -360,6 +360,47 @@
     margin-bottom: 10px;
 }
 
+/* Wrench */
 
+.custom-overlay-icon {
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	z-index: 999;
+}
+
+.custom-overlay-icon .material-symbols-outlined {
+	font-size: 24px;
+	color: #2d3748;
+	background: #fff;
+	border-radius: 50%;
+	padding: 4px;
+	box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+
+
+.custom-variation-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: white;
+  z-index: 10;
+  padding: 10px;
+  padding-top: 50px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  display: none;
+  height: 449px;
+}
+
+.custom-variation-wrapper.active {
+  display: block;
+}
+
+/* Make sure the parent has relative positioning */
+.wishlist-product {
+  position: relative;
+}
 
 

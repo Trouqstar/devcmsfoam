@@ -457,6 +457,32 @@ add_action( 'after_setup_theme', function () {
 }, 20 );
 
 
-//End of Remove Product Action Wrapper
+// JS Auth Toggle
+
+function kadence_child_enqueue_scripts() {
+    // Enqueue JS for auth toggle
+    wp_enqueue_script(
+        'auth-toggle',
+        get_stylesheet_directory_uri() . '/js/auth-toggle.js',
+        array(), // dependencies
+        '1.0.0',
+        true // load in footer
+    );
+}
+add_action('wp_enqueue_scripts', 'kadence_child_enqueue_scripts');
+
+// Header Removal
+
+add_action('wp_head', function() {
+    if (is_page()) {
+        echo '<style>
+            .entry-header, .page-header {
+                display: none !important;
+            }
+        </style>';
+    }
+}, 999);
+
+
 
 //End of Line

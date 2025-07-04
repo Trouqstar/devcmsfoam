@@ -85,15 +85,15 @@ jQuery(document).ready(function($) {
 
   $(document).on('click', '.custom-overlay-icon', function(e) {
     e.preventDefault();
-    e.stopPropagation();
-
+    e.stopImmediatePropagation(); // ✅ prevents duplicate events
     const productId = $(this).data('product-id');
+
+    // Find the exact wrapper
     const $wrapper = $('.custom-variation-wrapper[data-product_id="' + productId + '"]');
 
-    if ($wrapper.css('display') === 'none') {
-      $wrapper.stop(true, true).slideDown();
-    } else {
-      $wrapper.stop(true, true).slideUp();
+    // Slide toggle safely
+    if (!$wrapper.is(':animated')) {
+      $wrapper.stop(true, true).slideToggle(200);
     }
   });
 

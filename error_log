@@ -194,3 +194,7 @@ Stack trace:
 #8 /home/rsaczlopir/devcmsfoam.co.uk/index.php(17): require('/home/rsaczlopi...')
 #9 {main}
   thrown in /home/rsaczlopir/devcmsfoam.co.uk/wp-content/themes/kadence/inc/components/template_tags.php on line 78
+[04-Jul-2025 06:43:19 UTC] Cron reschedule event error for hook: litespeed_task_lqip, Error code: could_not_set, Error message: The cron event list could not be saved., Data: {"schedule":"litespeed_filter","args":[],"interval":60}
+[04-Jul-2025 06:43:19 UTC] Cron unschedule event error for hook: litespeed_task_lqip, Error code: could_not_set, Error message: The cron event list could not be saved., Data: {"schedule":"litespeed_filter","args":[],"interval":60}
+[04-Jul-2025 06:43:19 UTC] Cron reschedule event error for hook: litespeed_task_imgoptm_pull, Error code: could_not_set, Error message: The cron event list could not be saved., Data: {"schedule":"litespeed_filter","args":[],"interval":60}
+[04-Jul-2025 06:43:19 UTC] Cron unschedule event error for hook: litespeed_task_imgoptm_pull, Error code: could_not_set, Error message: The cron event list could not be saved., Data: {"schedule":"litespeed_filter","args":[],"interval":60}
